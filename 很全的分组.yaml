@@ -380,7 +380,7 @@ rule-providers:
   Emby:
     type: http
     behavior: classical
-    url: "https://raw.fastgit.org/yitiaowangkun/emby-rules/main/Emby.yaml"
+    url: https://raw.fastgit.org/justdoiting/emby-rules/main/Emby.yaml
     path: ./Rules/Emby.yaml
     interval: 86400
 
