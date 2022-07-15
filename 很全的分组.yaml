@@ -3,21 +3,28 @@ allow-lan: true
 mode: rule
 log-level: info
 ipv6: false
+tcp-concurrent: true
 dns:
   enable: true
   listen: 0.0.0.0:53
   ipv6: false
   default-nameserver:
-    - 114.114.114.114
-    - 223.5.5.5
+    - 101.6.6.6
+    - 202.141.162.123
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://doh.360.cn/dns-query
+    - https://dns.alidns.com/dns-query
   fallback:
-    - 114.114.114.114
-    - 223.5.5.5
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - 8.8.8.8
+    - 8.8.4.4
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
 proxy-groups:
   - name: 节点选择
     type: select
@@ -33,25 +40,29 @@ proxy-groups:
       - 俄罗斯节点
       - 其他地区
       - 手动选择
+      - 手动选择2
       - 故障转移
       - 负载均衡
       - 免流节点
       - DIRECT
-  - name: Netflix
+  - name: 手动选择
+    type: select
+    use:
+      - jiedianzu  #所有节点的合集的名称组，也可以使用其他分组（如 hk tw 仅当分组内有节点时才生效）
+  - name: 手动选择2
+    type: select
+    use:
+      - jiedianzu 
+  - name: 漏网之鱼
     type: select
     proxies:
-      - 香港节点
-      - 台湾节点
-      - 新加坡节点
-      - 日本节点
-      - 美国节点
-      - 德国节点
-      - 英国节点
-      - 韩国节点
-      - 俄罗斯节点
-      - 手动选择
       - DIRECT
-  - name: Disney+
+      - 故障转移
+      - 负载均衡
+      - 节点选择
+      - 手动选择
+      - 手动选择2
+  - name: 电报消息
     type: select
     proxies:
       - 香港节点
@@ -65,24 +76,14 @@ proxy-groups:
       - 俄罗斯节点
       - 其他地区
       - 手动选择
-      - DIRECT
+      - 手动选择2
+      - 故障转移
+      - 负载均衡
   - name: BiliBili
     type: select
     proxies:
       - 香港节点
       - 台湾节点
-      - 手动选择
-      - DIRECT
-  - name: TikTok
-    type: select
-    proxies:
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 新加坡节点
-      - 韩国节点
-      - 美国节点
-      - 其他地区
       - 手动选择
       - DIRECT
   - name: YouTube
@@ -99,8 +100,53 @@ proxy-groups:
       - 俄罗斯节点
       - 其他地区
       - 手动选择
+      - 手动选择2
       - 故障转移
       - 负载均衡
+  - name: TikTok
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 新加坡节点
+      - 韩国节点
+      - 美国节点
+      - 其他地区
+      - 手动选择
+      - 手动选择2
+      - DIRECT
+  - name: Netflix
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 手动选择
+      - 手动选择2
+      - DIRECT
+  - name: Disney+
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择2
+      - DIRECT
   - name: Emby
     type: select
     proxies:
@@ -118,27 +164,12 @@ proxy-groups:
       - 故障转移
       - 负载均衡
       - DIRECT
-  - name: 电报消息
-    type: select
-    proxies:
-      - 香港节点
-      - 台湾节点
-      - 新加坡节点
-      - 日本节点
-      - 美国节点
-      - 德国节点
-      - 英国节点
-      - 韩国节点
-      - 俄罗斯节点
-      - 其他地区
-      - 手动选择
-      - 故障转移
-      - 负载均衡
   - name: 隐私防护
     type: select
     proxies:
       - REJECT
       - DIRECT
+      - 手动选择2
       - 其他地区
   - name: 游戏平台
     type: select
@@ -154,6 +185,7 @@ proxy-groups:
       - 俄罗斯节点
       - 其他地区
       - 手动选择
+      - 手动选择2
       - 故障转移
       - 负载均衡
       - DIRECT
@@ -184,18 +216,6 @@ proxy-groups:
     proxies:
       - REJECT
       - DIRECT
-  - name: 手动选择
-    type: select
-    use:
-      - jiedianzu  #所有节点的合集的名称组，也可以使用其他分组（如 hk tw 仅当分组内有节点时才生效）
-  - name: 漏网之鱼
-    type: select
-    proxies:
-      - DIRECT
-      - 故障转移
-      - 负载均衡
-      - 节点选择
-      - 手动选择
   - name: 故障转移
     type: fallback
     url: https://i.ytimg.com/generate_204
@@ -205,7 +225,7 @@ proxy-groups:
        - jiedianzu
   - name: 负载均衡
     type: load-balance
-    strategy: sticky-sessions
+    strategy: consistent-hashing
     url: https://i.ytimg.com/generate_204
     interval: 600
     tolerance: 50
@@ -302,37 +322,37 @@ proxy-providers:
       interval: 600
   hk:
     <<: *jiedianzu  #引用所有节点
-    filter: 港|🇭🇰|HK|(?i)Hong
+    filter: 港|🇭🇰|(?i)HK|(?i)Hong
   tw:
     <<: *jiedianzu  #引用所有节点
-    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan|CN|(?i)China|中国
+    filter: 台|🇨🇳|🇹🇼|湾|(?i)TW|(?i)Taiwan|CN|(?i)China|中国
   sg:
     <<: *jiedianzu  #引用所有节点
-    filter: 狮|🇸🇬|坡|SG|(?i)Singapore
+    filter: 狮|🇸🇬|坡|(?i)SG|(?i)Singapore
   jp:
     <<: *jiedianzu  #引用所有节点
-    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    filter: 日|🇯🇵|东京|(?i)JP|(?i)Japan
   us:
     <<: *jiedianzu  #引用所有节点
-    filter: 美|🇺🇸|US|(?i)States|American
+    filter: 美|🇺🇸|(?i)US|(?i)States|American
   de:
     <<: *jiedianzu  #引用所有节点
-    filter: 德|🇩🇪|DE|(?i)Germany
+    filter: 德|🇩🇪|(?i)DE|(?i)Germany
   kr:
     <<: *jiedianzu  #引用所有节点
-    filter: 韩|🇰🇷|KR|KOR|首尔|韩|韓(?i)Korea
+    filter: 韩|🇰🇷|(?i)KR|(?i)KOR|首尔|韩|韓|(?i)Korea
   ru:
     <<: *jiedianzu  #引用所有节点
-    filter: 俄|🇷🇺|RU|(?i)Russian|(?i)Moscow
+    filter: 俄|🇷🇺|(?i)RU|(?i)Russian|(?i)Moscow
   gb:
     <<: *jiedianzu  #引用所有节点
-    filter: 英|🇬🇧|GB|(?i)Britain|伦敦
+    filter: 英|🇬🇧|(?i)GB|(?i)Britain|伦敦
   mianliu:
     <<: *jiedianzu  #引用所有节点
     filter: 80|443|(?i)TCP|浙停|广停|绿通|免流
   other:
     <<: *jiedianzu  #引用所有节点
-    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|广停|广东|中国|国内|China|香港|hk|HK|hongkong|台|台湾|TW|taiwan|日本|jp|JP|新加坡|sg|美国|US|韩|俄|英|德|RU|GB|DE)).*
+    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|新加坡|(?i)sg|美国|(?i)US|韩|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
 
 rule-providers:
   BiliBili:
@@ -380,7 +400,7 @@ rule-providers:
   Emby:
     type: http
     behavior: classical
-    url: https://raw.fastgit.org/justdoiting/emby-rules/main/Emby.yaml
+    url: "https://raw.fastgit.org/justdoiting/emby-rules/main/Emby.yaml"
     path: ./Rules/Emby.yaml
     interval: 86400
 
@@ -439,20 +459,21 @@ rule-providers:
     path: ./Rules/Lan.yaml
     interval: 86400
 rules:
+  - DOMAIN-SUFFIX,services.googleapis.cn,节点选择
   - RULE-SET,BiliBili,BiliBili
   - RULE-SET,YouTube,YouTube
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Disney,Disney+
   - RULE-SET,TikTok,TikTok
   - RULE-SET,Emby,Emby
   - RULE-SET,Telegram,电报消息
   - RULE-SET,Game,游戏平台
   - RULE-SET,BanEasyPrivacy,隐私防护
-  - RULE-SET,ChinaMax,全球直连
-  - RULE-SET,Global,节点选择
-  - RULE-SET,Lan,全球直连
   - RULE-SET,Advertising,广告拦截
   - RULE-SET,Download,下载平台
   - RULE-SET,PrivateTracker,BT种子
-  - RULE-SET,Netflix,Netflix
-  - RULE-SET,Disney,Disney+
+  - RULE-SET,Lan,全球直连
+  - RULE-SET,ChinaMax,全球直连
   - GEOIP,CN,全球直连
+  - RULE-SET,Global,节点选择
   - MATCH,漏网之鱼
