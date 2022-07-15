@@ -25,6 +25,15 @@ dns:
     - 8.8.4.4
     - tls://1.0.0.1:853
     - tls://dns.google:853
+tun:
+  enable: true
+  device: meta
+  stack: system
+  dns-hijack:
+    - 198.18.0.2:53
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
 proxy-groups:
   - name: 节点选择
     type: select
