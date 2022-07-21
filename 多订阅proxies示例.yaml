@@ -1,0 +1,631 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+tcp-concurrent: true
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 1.2.4.8
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://doh.360.cn/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - 8.8.8.8
+    - 8.8.4.4
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+
+all: &all #所有节点的合集
+  type: select
+  use:
+    - dy1
+    - dy2
+    - dy3
+    - dy4
+    - dy5  
+    - dy6
+    - dy7
+    - dy8
+    - dy9
+    - dy10
+    - dy11
+    - dy12
+    - dy13
+    - dy14
+    - dy15
+    - dy16
+    - dy17    #还有订阅的话继续往下加 dy18 dy19 ……
+
+
+#分割线，下面是放你的机场订阅链接的
+proxy-providers:
+  dy1:
+    type: http
+    path: ./ttProxies/dy1.yaml #生成名为'dy1'的配置文件
+    # 将 下面一行的url 替换为你的Clash机场订阅链接
+    url: 你的订阅链接（比如https://sub.xxxx/clash)
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy2:
+    type: http
+    path: ./ttProxies/dy2.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy3:
+    type: http
+    path: ./ttProxies/dy3.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy4:
+    type: http
+    path: ./ttProxies/dy4.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy5:
+    type: http
+    path: ./ttProxies/dy5.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy6:
+    type: http
+    path: ./ttProxies/dy6.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy7:
+    type: http
+    path: ./ttProxies/dy7.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy8:
+    type: http
+    path: ./ttProxies/dy8.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy9:
+    type: http
+    path: ./ttProxies/dy9.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy10:
+    type: http
+    path: ./ttProxies/dy10.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy11:
+    type: http
+    path: ./ttProxies/dy11.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy12:
+    type: http
+    path: ./ttProxies/dy12.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy13:
+    type: http
+    path: ./ttProxies/dy13.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy14:
+    type: http
+    path: ./ttProxies/dy14.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy15:
+    type: http
+    path: ./ttProxies/dy15.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy16:
+    type: http
+    path: ./ttProxies/dy16.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+  dy17:
+    type: http
+    path: ./ttProxies/dy17.yaml
+    url: 你的订阅链接
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://i.ytimg.com/generate_204
+      interval: 600
+#还有订阅的话继续往下加 dy18 dy19 ……
+
+#分割线，下面是“代理”页面出现的分组，“name”是一级分组，“proxies”是二级分组，选节点用的
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 法国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - 故障转移
+      - 负载均衡
+      - 免流节点
+      - DIRECT
+  - name: 手动选择
+    type: select
+    <<: *all
+  - name: 手动选择②
+    type: select
+    <<: *all
+  - name: 漏网之鱼
+    type: select
+    proxies:
+      - DIRECT
+      - 故障转移
+      - 负载均衡
+      - 节点选择
+      - 手动选择
+      - 手动选择②
+  - name: 电报消息
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 英国节点
+      - 法国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - 故障转移
+      - 负载均衡
+  - name: BiliBili
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 手动选择
+      - DIRECT
+  - name: YouTube
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 英国节点
+      - 法国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - 故障转移
+      - 负载均衡
+  - name: TikTok
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 新加坡节点
+      - 韩国节点
+      - 法国节点
+      - 美国节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - DIRECT
+  - name: Netflix
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 法国节点
+      - 德国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 手动选择
+      - 手动选择②
+      - DIRECT
+  - name: Disney+
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 法国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - DIRECT
+  - name: Emby
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 法国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+  - name: 隐私防护
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - 手动选择
+      - 其他地区
+  - name: 游戏平台
+    type: select
+    proxies:
+      - 香港节点
+      - 台湾节点
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 德国节点
+      - 法国节点
+      - 英国节点
+      - 韩国节点
+      - 俄罗斯节点
+      - 其他地区
+      - 手动选择
+      - 手动选择②
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+  - name: 下载平台
+    type: select
+    proxies:
+      - 故障转移
+      - 负载均衡
+      - 手动选择
+      - 其他地区
+      - DIRECT
+  - name: BT种子
+    type: select
+    proxies:
+      - 负载均衡
+      - 故障转移
+      - 其他地区
+      - 手动选择
+      - DIRECT
+  - name: 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 节点选择
+      - 手动选择
+  - name: 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 故障转移
+    type: fallback
+    url: https://i.ytimg.com/generate_204
+    interval: 300
+    tolerance: 50
+    <<: *all
+  - name: 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://i.ytimg.com/generate_204
+    interval: 300
+    tolerance: 50
+    <<: *all
+
+#分割线，下面是节点按地区分组并自动测延迟
+  - name: 香港节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 港|🇭🇰|(?i)HK|(?i)Hong
+  - name: 台湾节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 台|🇨🇳|🇹🇼|湾|(?i)TW|(?i)Taiwan|CN|(?i)China|中国
+  - name: 新加坡节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter:  狮|🇸🇬|坡|(?i)SG|(?i)Singapore
+  - name: 日本节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 日|🇯🇵|东京|(?i)JP|(?i)Japan|(?i)Tokyo
+  - name: 美国节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 美|🇺🇸|(?i)US|(?i)States|American
+  - name: 德国节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 德|🇩🇪|(?i)DE|(?i)Germany
+  - name: 英国节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 英|🇬🇧|(?i)GB|(?i)Britain|伦敦
+  - name: 俄罗斯节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 俄|🇷🇺|(?i)RU|(?i)Russian|(?i)Moscow
+  - name: 韩国节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 韩|🇰🇷|(?i)KR|(?i)KOR|首尔|韩|韓|(?i)Korea
+  - name: 法国节点
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 法|🇫🇷|(?i)FR|巴黎|(?i)Paris
+  - name: 其他地区
+    type: url-test
+    url: https://i.ytimg.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|(?i)Tokyo|(?ijapan)|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)South Korea|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
+  - name: 免流节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
+    <<: *all
+    filter: 80|443|(?i)TCP|浙停|广停|绿通|免流
+
+#分割线，下面是分流规则
+rule-providers:
+  BiliBili:
+    type: http
+    behavior: classical
+    url: "https://raw.fastgit.org/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./Rules1/bilibili.yaml
+    interval: 86400
+
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Disney/Disney.yaml"
+    path: ./Rules1/Disney.yaml
+    interval: 86400
+
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Netflix/Netflix.yaml
+    path: ./Rules1/Netflix.yaml
+    interval: 86400
+
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/TikTok/TikTok.yaml"
+    path: ./Rules1/TikTok.yaml
+    interval: 86400
+
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./Rules1/YouTube.yaml
+    interval: 86400
+
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Telegram/Telegram.yaml"
+    path: ./Rules1/Telegram.yaml
+    interval: 86400
+
+  Emby:
+    type: http
+    behavior: classical
+    url: "https://raw.fastgit.org/justdoiting/emby-rules/main/Emby.yaml"
+    path: ./Rules1/Emby.yaml
+    interval: 86400
+
+  Game:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Game/Game.yaml"
+    path: ./Rules1/Game.yaml
+    interval: 86400
+
+  BanEasyPrivacy:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml"
+    path: ./Rules1/BanEasyPrivacy.yaml
+    interval: 86400
+
+  Advertising:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Advertising/Advertising_Classical.yaml
+    path: ./Rules1/Advertising.yaml
+    interval: 86400
+
+  Download:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Download/Download.yaml
+    path: ./Rules1/Download.yaml
+    interval: 86400
+
+  PrivateTracker:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./Rules1/PrivateTracker.yaml
+    interval: 86400
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+    path: ./Rules1/ChinaMax.yaml
+    interval: 86400
+
+  Global:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Global/Global_Classical.yaml
+    path: ./Rules1/Global.yaml
+    interval: 86400
+
+  Lan:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Lan/Lan.yaml
+    path: ./Rules1/Lan.yaml
+    interval: 86400
+rules:
+  - RULE-SET,BiliBili,BiliBili
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Disney,Disney+
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,Emby,Emby
+  - RULE-SET,Telegram,电报消息
+  - RULE-SET,Game,游戏平台
+  - RULE-SET,BanEasyPrivacy,隐私防护
+  - RULE-SET,Advertising,广告拦截
+  - RULE-SET,Download,下载平台
+  - RULE-SET,PrivateTracker,BT种子
+  - RULE-SET,Lan,全球直连
+  - RULE-SET,ChinaMax,全球直连
+  - GEOIP,CN,全球直连
+  - RULE-SET,Global,节点选择
+  - MATCH,漏网之鱼
