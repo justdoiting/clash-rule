@@ -497,7 +497,7 @@ proxy-groups:
     interval: 600
     tolerance: 50
     <<: *all
-    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|(?i)Tokyo|(?i)japan)|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)South Korea|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
+    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|(?i)Tokyo|(?i)japan|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)South Korea|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
   - name: 免流节点
     type: url-test
     url: http://www.gstatic.com/generate_204
