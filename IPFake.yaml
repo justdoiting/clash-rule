@@ -86,3 +86,6 @@ payload:
   - IP-CIDR,140.143.177.206/32
         # 网页端
   - DOMAIN,www.douban.com
+        # ======= 酷安 ======= #
+        # issue#15提供
+  - DOMAIN,api.coolapk.com
