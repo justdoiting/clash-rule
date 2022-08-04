@@ -27,6 +27,11 @@ dns:
     - 8.8.4.4
     - tls://1.0.0.1:853
     - tls://dns.google:853
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite: 
+      - '!CN'
 
 all: &all #所有节点的合集
   type: select
@@ -61,7 +66,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy2:
     type: http
     path: ./ttProxies/dy2.yaml
@@ -70,7 +75,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy3:
     type: http
     path: ./ttProxies/dy3.yaml
@@ -79,7 +84,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy4:
     type: http
     path: ./ttProxies/dy4.yaml
@@ -88,7 +93,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy5:
     type: http
     path: ./ttProxies/dy5.yaml
@@ -97,7 +102,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy6:
     type: http
     path: ./ttProxies/dy6.yaml
@@ -106,7 +111,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy7:
     type: http
     path: ./ttProxies/dy7.yaml
@@ -115,7 +120,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy8:
     type: http
     path: ./ttProxies/dy8.yaml
@@ -124,7 +129,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy9:
     type: http
     path: ./ttProxies/dy9.yaml
@@ -133,7 +138,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy10:
     type: http
     path: ./ttProxies/dy10.yaml
@@ -142,7 +147,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy11:
     type: http
     path: ./ttProxies/dy11.yaml
@@ -151,7 +156,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy12:
     type: http
     path: ./ttProxies/dy12.yaml
@@ -160,7 +165,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy13:
     type: http
     path: ./ttProxies/dy13.yaml
@@ -169,7 +174,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy14:
     type: http
     path: ./ttProxies/dy14.yaml
@@ -178,7 +183,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy15:
     type: http
     path: ./ttProxies/dy15.yaml
@@ -187,7 +192,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy16:
     type: http
     path: ./ttProxies/dy16.yaml
@@ -196,7 +201,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
   dy17:
     type: http
     path: ./ttProxies/dy17.yaml
@@ -205,7 +210,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://i.ytimg.com/generate_204
-      interval: 600
+      interval: 300
 #还有订阅的话继续往下加 dy18 dy19 ……
 
 #分割线，下面是“代理”页面出现的分组，“name”是一级分组，“proxies”是二级分组，选节点用的
@@ -446,7 +451,7 @@ proxy-groups:
   - name: 自动选择
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 300
+    interval: 180
     tolerance: 50
     lazy: true
     <<: *all
@@ -455,84 +460,84 @@ proxy-groups:
   - name: 香港节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 港|🇭🇰|(?i)HK|(?i)Hong
   - name: 台湾节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 台|🇨🇳|🇹🇼|湾|(?i)TW|(?i)Taiwan|CN|(?i)China|中国
   - name: 新加坡节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter:  狮|🇸🇬|坡|(?i)SG|(?i)Singapore
   - name: 日本节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 日|🇯🇵|东京|(?i)JP|(?i)Japan|(?i)Tokyo
   - name: 美国节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 美|🇺🇸|(?i)US|(?i)States|American
   - name: 德国节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 德|🇩🇪|(?i)DE|(?i)Germany
   - name: 英国节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 英|🇬🇧|(?i)GB|(?i)Britain|伦敦
   - name: 俄罗斯节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 俄|🇷🇺|(?i)RU|(?i)Russian|(?i)Moscow
   - name: 韩国节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 韩|🇰🇷|(?i)KR|(?i)KOR|首尔|韩|韓|(?i)Korea
   - name: 法国节点
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 法|🇫🇷|(?i)FR|巴黎|(?i)Paris
   - name: 其他地区
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|(?i)Tokyo|(?i)japan|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)South Korea|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
   - name: 免流节点
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 600
+    interval: 200
     tolerance: 50
     <<: *all
     filter: 80|443|(?i)TCP|浙停|广停|绿通|免流
@@ -542,7 +547,7 @@ rule-providers:
   IPfake:
     type: http
     behavior: classical
-    url: "https://raw.fastgit.org/justdoiting/ClashRule/main/iptrue.yaml"
+    url: "https://raw.fastgit.org/justdoiting/clash-rule/main/IPFake.yaml"
     path: ./Rules1/IPfake.yaml
     interval: 86400
   BiliBili:
@@ -649,6 +654,8 @@ rule-providers:
     path: ./Rules1/Lan.yaml
     interval: 86400
 rules:
+  - DOMAIN-SUFFIX,gjfzpt.cn,REJECT
+  - SRC-IP-CIDR,219.143.187.136/32,REJECT
   - RULE-SET,IPfake,社交平台IP归属地
   - RULE-SET,BiliBili,BiliBili
   - RULE-SET,YouTube,YouTube
