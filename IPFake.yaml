@@ -81,6 +81,8 @@ payload:
         # ======= 豆瓣 ======= #
         # issue#14提供
         # iOS客户端
+  - IP-CIDR,119.29.29.98/32
+  - DOMAIN,frodo.douban.com
   - IP-CIDR,49.233.242.15/32
   - IP-CIDR,81.70.124.99/32
   - IP-CIDR,140.143.177.206/32
@@ -92,3 +94,12 @@ payload:
         # ======= TapTap ======= #
         # issue#16提供
   - DOMAIN,api.taptapdada.com
+        # ======= 网易大神 ======= #
+        # issue#17提供
+  - DOMAIN,god.gameyw.netease.com
+        # ======= 虎牙 ======= #
+        # issue#17提供
+  - DOMAIN-SUFFIX,huya.com
+        # ======= 懂球帝 ======= #
+        # issue#18提供
+  - DOMAIN-SUFFIX,dongqiudi.com
