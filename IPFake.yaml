@@ -13,11 +13,19 @@ payload:
   - DOMAIN,message.bilibili.com
   - DOMAIN,cm.bilibili.com
   - DOMAIN-SUFFIX,bilibili.com
+  - DOMAIN-SUFFIX,im9.com
+  - DOMAIN-SUFFIX,acg.tv
+  - DOMAIN-SUFFIX,biligame.com
         # ======= 微博 ======= #
         # 微博
         # issue#5 报告发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
   - DOMAIN-SUFFIX,api.weibo.cn
   - DOMAIN-SUFFIX,api.weibo.com
+  - DOMAIN-SUFFIX,weibo.com
+  - HOST-SUFFIX,weibo.cn
+  - HOST-SUFFIX,weibo.com
+  - HOST-SUFFIX,weibocdn.com
+  - HOST-KEYWORD,weibo
         # ======= 百度贴吧 ======= #
         # 百度贴吧
   - DOMAIN,tieba.baidu.com
