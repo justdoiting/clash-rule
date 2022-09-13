@@ -1,3 +1,4 @@
+external-controller: 127.0.0.1:9090
 mixed-port: 7890
 allow-lan: true
 mode: rule
@@ -29,6 +30,28 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
+    ipcidr:
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.168.0.0/16
+      - 192.88.99.0/24
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
+    domain:
+      - '+.facebook.com'
+      - '+.githubusercontent.com'
+      - '+.google.com'
+      - '+.youtube.com'
 
 d: &d  #机场订阅参数
   type: http
@@ -43,18 +66,22 @@ r: &r #分流规则订阅参数
   behavior: classical
   interval: 86400
 
+t: &t  #节点测试参数
+  url: https://i.ytimg.com/generate_204
+  interval: 300
+  tolerance: 50
+
 all: &all #所有节点的合集
-  type: select
   use:
-    - dy1
-    - dy2
-    - dy3
-    - dy4
-    - dy5  
-    - dy6
-    - dy7
-    - dy8
-    - dy9
+    - dy01
+    - dy02
+    - dy03
+    - dy04
+    - dy05  
+    - dy06
+    - dy07
+    - dy08
+    - dy09
     - dy10
     - dy11
     - dy12
@@ -66,48 +93,48 @@ all: &all #所有节点的合集
 
 #分割线，下面是放你的机场订阅链接的
 proxy-providers:
-  dy1:
+  dy01:
     <<: *d
     path: ./Proxies/dy1.yaml #生成名为'dy1'的配置文件
     # 将 下面一行的url 替换为你的Clash机场订阅链接
     url: #你的订阅链接（比如https://sub.xxxx/clash)
 
-  dy2:
+  dy02:
     <<: *d
     path: ./Proxies/dy2.yaml
     url: #你的订阅链接
 
-  dy3:
+  dy03:
     <<: *d
     path: ./Proxies/dy3.yaml
     url: #你的订阅链接
 
-  dy4:
+  dy04:
     <<: *d
     path: ./Proxies/dy4.yaml
     url: #你的订阅链接
 
-  dy5:
+  dy05:
     <<: *d
     path: ./Proxies/dy5.yaml
     url: #你的订阅链接
 
-  dy6:
+  dy06:
     <<: *d
     path: ./Proxies/dy6.yaml
     url: #你的订阅链接
 
-  dy7:
+  dy07:
     <<: *d
     path: ./Proxies/dy7.yaml
     url: #你的订阅链接
 
-  dy8:
+  dy08:
     <<: *d
     path: ./Proxies/dy8.yaml
     url: #你的订阅链接
 
-  dy9:
+  dy09:
     <<: *d
     path: ./Proxies/dy9.yaml
     url: #你的订阅链接
@@ -242,6 +269,7 @@ proxy-groups:
   - name: 🎬 YouTube
     type: select
     proxies:
+      - ♻️ 自动选择
       - 🚀 节点选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
@@ -261,6 +289,7 @@ proxy-groups:
   - name: 📷 TikTok
     type: select
     proxies:
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -275,6 +304,7 @@ proxy-groups:
   - name: 🎥 Netflix
     type: select
     proxies:
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 新加坡节点
@@ -291,6 +321,7 @@ proxy-groups:
   - name: 📹 Disney+
     type: select
     proxies:
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 新加坡节点
@@ -308,6 +339,7 @@ proxy-groups:
   - name: 🎼 Emby
     type: select
     proxies:
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 新加坡节点
@@ -334,6 +366,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
+      - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 新加坡节点
@@ -353,6 +386,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
+      - ♻️ 自动选择
       - 🛠️ 故障转移
       - 🔵 负载均衡
       - 🔑 手动选择
@@ -361,6 +395,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
+      - ♻️ 自动选择
       - 🔵 负载均衡
       - 🛠️ 故障转移
       - 🍁 其他地区
@@ -392,9 +427,8 @@ proxy-groups:
   - name: ♻️ 自动选择
     type: url-test
     url: https://i.ytimg.com/generate_204
-    interval: 180
+    interval: 320
     tolerance: 50
-    lazy: true
     proxies:
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
@@ -410,86 +444,62 @@ proxy-groups:
 #分割线，下面是节点按地区分组并自动测延迟
   - name: 🇭🇰 香港节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 港|🇭🇰|(?i)HK|(?i)Hong
   - name: 🇹🇼 台湾节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 台|🇨🇳|🇹🇼|湾|(?i)TW|(?i)Taiwan|CN|(?i)China|中国
   - name: 🇸🇬 新加坡节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter:  狮|🇸🇬|坡|(?i)SG|(?i)Singapore
   - name: 🇯🇵 日本节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 日|🇯🇵|东京|(?i)JP|(?i)Japan|(?i)Tokyo
   - name: 🇺🇸 美国节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 美|🇺🇸|(?i)US|(?i)States|American
   - name: 🇩🇪 德国节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 德|🇩🇪|(?i)DE|(?i)Germany
   - name: 🇬🇧 英国节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 英|🇬🇧|(?i)uk|(?i)Britain|(?i)eng|伦敦
   - name: 🇷🇺 俄罗斯节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 俄|🇷🇺|(?i)RU|(?i)Russian|(?i)Moscow
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 韩|🇰🇷|(?i)KR|(?i)KOR|首尔|韩|韓|(?i)Korea
   - name: 🇫🇷 法国节点
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 法|🇫🇷|(?i)FRA|巴黎|(?i)Paris
   - name: 🍁 其他地区
     type: url-test
-    url: https://i.ytimg.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|(?i)jp|(?i)Tokyo|(?i)japan|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)South Korea|俄|英|德|(?i)RU|(?i)GB|(?i)DE)).*
   - name: 免流节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 200
-    tolerance: 50
+    t: &t
     <<: *all
     filter: 80|443|(?i)TCP|浙停|广停|绿通|免流
 
