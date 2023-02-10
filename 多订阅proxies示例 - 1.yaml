@@ -1,0 +1,641 @@
+external-controller: 127.0.0.1:9090
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 1.2.4.8
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://doh.360.cn/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - 8.8.8.8
+    - 8.8.4.4
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.168.0.0/16
+      - 192.88.99.0/24
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
+    domain:
+      - '+.facebook.com'
+      - '+.githubusercontent.com'
+      - '+.google.com'
+      - '+.youtube.com'
+
+d: &d  #机场订阅参数
+  type: http
+  interval: 21600
+  health-check:
+   enable: true
+   url: https://www.google.com/generate_204
+   interval: 300
+
+r: &r #分流规则订阅参数
+  type: http
+  behavior: classical
+  interval: 86400
+
+t: &t  #节点测试参数
+  url: https://www.google.com/generate_204
+  interval: 300
+  tolerance: 50
+
+all: &all #所有节点的合集
+  use:
+    - dy01
+    - dy02
+    - dy03
+    - dy04
+    - dy05  
+    - dy06
+    - dy07
+    - dy08
+    - dy09
+    - dy10
+    - dy11
+    - dy12
+    - dy13
+    - dy14
+    - dy15
+    - dy16
+    - dy17    #还有订阅的话继续往下加 dy18 dy19 ……
+
+#分割线，下面是放你的机场订阅链接的
+proxy-providers:
+  dy01:
+    <<: *d
+    path: ./Proxies/dy1.yaml #生成名为'dy1'的配置文件
+    # 将 下面一行的url 替换为你的Clash机场订阅链接
+    url: #你的订阅链接（比如https://sub.xxxx/clash)
+
+  dy02:
+    <<: *d
+    path: ./Proxies/dy2.yaml
+    url: #你的订阅链接
+
+  dy03:
+    <<: *d
+    path: ./Proxies/dy3.yaml
+    url: #你的订阅链接
+
+  dy04:
+    <<: *d
+    path: ./Proxies/dy4.yaml
+    url: #你的订阅链接
+
+  dy05:
+    <<: *d
+    path: ./Proxies/dy5.yaml
+    url: #你的订阅链接
+
+  dy06:
+    <<: *d
+    path: ./Proxies/dy6.yaml
+    url: #你的订阅链接
+    path: ./Proxies/dy7.yaml
+
+  dy07:
+    <<: *d
+    url: #你的订阅链接
+
+  dy08:
+    <<: *d
+    path: ./Proxies/dy8.yaml
+    url: #你的订阅链接
+
+  dy09:
+    <<: *d
+    path: ./Proxies/dy9.yaml
+    url: #你的订阅链接
+
+  dy10:
+    <<: *d
+    path: ./Proxies/dy10.yaml
+    url: #你的订阅链接
+
+  dy11:
+    <<: *d
+    path: ./Proxies/dy11.yaml
+    url: #你的订阅链接
+
+  dy12:
+    <<: *d
+    path: ./Proxies/dy12.yaml
+    url: #你的订阅链接
+
+  dy13:
+    <<: *d
+    path: ./Proxies/dy13.yaml
+    url: #你的订阅链接
+
+  dy14:
+    <<: *d
+    path: ./Proxies/dy14.yaml
+    url: #你的订阅链接
+
+  dy15:
+    <<: *d
+    path: ./Proxies/dy15.yaml
+    url: #你的订阅链接
+
+  dy16:
+    <<: *d
+    path: ./Proxies/dy16.yaml
+    url: #你的订阅链接
+
+  dy17:
+    <<: *d
+    path: ./Proxies/dy17.yaml
+    url: #你的订阅链接
+
+#还有订阅的话继续往下加 dy18 dy19 ……
+
+#分割线，下面是“代理”页面出现的分组，“name”是一级分组，“proxies”是二级分组，选节点用的
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇨🇳 中转节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - 免流节点
+      - DIRECT
+  - name: 🔑 手动选择
+    type: select
+    <<: *all
+  - name: 🔑 手动选择②
+    type: select
+    <<: *all
+  - name: 🚩 社交平台IP归属地
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+      - 免流节点
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🛠️ 故障转移
+      - ♻️ 自动选择
+      - 🔵 负载均衡
+      - DIRECT
+      - 🚀 节点选择
+      - 🔑 手动选择
+      - 🔑 手动选择②
+  - name: ☎️ 电报消息
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+  - name: 📺 BiliBili
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🔑 手动选择
+  - name: 🎬 YouTube
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🚀 节点选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+  - name: 📷 TikTok
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇰🇷 韩国节点
+      - 🇫🇷 法国节点
+      - 🇺🇸 美国节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - DIRECT
+  - name: 🎥 Netflix
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - DIRECT
+  - name: 📹 Disney+
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - DIRECT
+  - name: 🎼 Emby
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+      - DIRECT
+  - name: 🛡️ 隐私防护
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - 🔑 手动选择
+      - 🍁 其他地区
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - DIRECT
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+      - 🍁 其他地区
+      - 🔑 手动选择
+      - 🔑 手动选择②
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+  - name: ⏬ 下载平台
+    type: select
+    proxies:
+      - DIRECT
+      - ♻️ 自动选择
+      - 🛠️ 故障转移
+      - 🔵 负载均衡
+      - 🔑 手动选择
+      - 🍁 其他地区
+  - name: 🌲 BT种子
+    type: select
+    proxies:
+      - DIRECT
+      - ♻️ 自动选择
+      - 🔵 负载均衡
+      - 🛠️ 故障转移
+      - 🍁 其他地区
+      - 🔑 手动选择
+  - name: 🇨🇳 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - 🔑 手动选择
+  - name: 🚫 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🛠️ 故障转移
+    type: fallback
+    url: https://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+  - name: 🔵 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://www.google.com/generate_204
+    interval: 320
+    tolerance: 50
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇩🇪 德国节点
+      - 🇫🇷 法国节点
+      - 🇬🇧 英国节点
+      - 🇰🇷 韩国节点
+      - 🇷🇺 俄罗斯节点
+
+#分割线，下面是节点按地区分组并自动测延迟
+  - name: 🇭🇰 香港节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 港|🇭🇰|(?i)HK|(?i)Hong
+  - name: 🇹🇼 台湾节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 台|🇹🇼|湾|(?i)TW|(?i)Taiwan
+  - name: 🇨🇳 中转节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 🇨🇳|CN|(?i)China|中国|中转
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter:  狮|🇸🇬|坡|(?i)SG|(?i)Singapore
+  - name: 🇯🇵 日本节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 日|🇯🇵|东京|(?i)JP|(?i)Japan|(?i)Tokyo
+  - name: 🇺🇸 美国节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 美|🇺🇸|(?i)US|(?i)States|American
+  - name: 🇩🇪 德国节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 德|🇩🇪|(?i)DE|(?i)Germany
+  - name: 🇬🇧 英国节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 英|🇬🇧|(?i)uk|(?i)Britain|(?i)eng|伦敦
+  - name: 🇷🇺 俄罗斯节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 俄|🇷🇺|(?i)RU|(?i)Russian|(?i)Moscow|莫斯科
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 韩|🇰🇷|(?i)KR|(?i)KOR|首尔|韩|韓|(?i)Korea
+  - name: 🇫🇷 法国节点
+    type: url-test
+    t: &t
+    <<: *all
+    filter: 法|🇫🇷|(?i)FRA|巴黎|(?i)Paris
+  - name: 🍁 其他地区
+    type: url-test
+    t: &t
+    <<: *all
+    filter: ^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|广停|广东|中国|(?i)cn|国内|(?i)China|香港|(?i)hk|(?i)fr|(?i)hongkong|台|台湾|(?i)TW|(?i)taiwan|日本|东京|(?i)jp|(?i)Tokyo|(?i)japan|新加坡|(?i)sg|(?i)Singapore|美国|(?i)US|韩|(?i)kr|(?i)South Korea|俄|莫斯科|英|(?i)uk|德|(?i)RU|(?i)GB|(?i)DE)).*
+  - name: 免流节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    <<: *all
+    filter: 80|443|(?i)TCP|浙停|广停|绿通|免流
+
+#分割线，下面是分流规则
+rule-providers:
+  IPfake:
+    <<: *r
+    url: "https://raw.fastgit.org/lwd-temp/anti-ip-attribution/main/generated/rule-provider.yaml"
+    path: ./Rules/IPfake.yaml
+
+  BiliBili:
+    <<: *r
+    url: "https://raw.fastgit.org/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./Rules/bilibili.yaml
+
+  Disney:
+    <<: *r
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Disney/Disney.yaml"
+    path: ./Rules/Disney.yaml
+
+  Netflix:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Netflix/Netflix.yaml
+    path: ./Rules/Netflix.yaml
+
+  TikTok:
+    <<: *r
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/TikTok/TikTok.yaml"
+    path: ./Rules/TikTok.yaml
+
+  YouTube:
+    <<: *r
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./Rules/YouTube.yaml
+
+  Telegram:
+    <<: *r
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Telegram/Telegram.yaml"
+    path: ./Rules/Telegram.yaml
+
+  Emby:
+    <<: *r
+    url: "https://raw.fastgit.org/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml"
+    path: ./Rules/Emby.yaml
+
+  Game:
+    <<: *r
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Game/Game.yaml"
+    path: ./Rules/Game.yaml
+
+  BanEasyPrivacy:
+    <<: *r
+    url: "https://raw.fastgit.org/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+    path: ./Rules/BanEasyPrivacy.yaml
+
+  Advertising:
+    <<: *r
+    url: https://raw.fastgit.org/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
+    path: ./Rules/Advertising.yaml
+
+  Download:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Download/Download.yaml
+    path: ./Rules/Download.yaml
+
+  PrivateTracker:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./Rules/PrivateTracker.yaml
+
+  ChinaMax:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+    path: ./Rules/ChinaMax.yaml
+
+  Global:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Global/Global_Classical.yaml
+    path: ./Rules/Global.yaml
+
+  Lan:
+    <<: *r
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/Lan/Lan.yaml
+    path: ./Rules/Lan.yaml
+
+  Geo:
+    type: http
+    behavior: ipcidr
+    interval: 86400
+    url: https://raw.fastgit.org/soffchen/GeoIP2-CN/release/clash-rule-provider.yml
+    path: ./Rules/ipip.yaml
+
+rules:
+  - RULE-SET,BiliBili,📺 BiliBili
+  - RULE-SET,YouTube,🎬 YouTube
+  - RULE-SET,Netflix,🎥 Netflix
+  - RULE-SET,Disney,📹 Disney+
+  - RULE-SET,TikTok,📷 TikTok
+  - RULE-SET,Emby,🎼 Emby
+  - RULE-SET,Telegram,☎️ 电报消息
+  - RULE-SET,Game,🎮 游戏平台
+  - RULE-SET,BanEasyPrivacy,🛡️ 隐私防护
+  - RULE-SET,Advertising,🚫 广告拦截
+  - RULE-SET,Download,⏬ 下载平台
+  - RULE-SET,PrivateTracker,🌲 BT种子
+  - RULE-SET,IPfake,🚩 社交平台IP归属地
+  - RULE-SET,Lan,🇨🇳 全球直连
+  - RULE-SET,Geo,🇨🇳 全球直连
+  - RULE-SET,ChinaMax,🇨🇳 全球直连
+  - RULE-SET,Global,🚀 节点选择
+  - MATCH,🐟 漏网之鱼
