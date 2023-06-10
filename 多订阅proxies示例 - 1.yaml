@@ -49,7 +49,6 @@ dns:
       - 255.255.255.255/32
     domain:
       - '+.facebook.com'
-      - '+.githubusercontent.com'
       - '+.google.com'
       - '+.youtube.com'
 
