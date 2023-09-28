@@ -534,12 +534,12 @@ proxy-groups:
 rule-providers:
   IPfake:
     <<: *r
-    url: "https://raw.fastgit.org/lwd-temp/anti-ip-attribution/main/generated/rule-provider.yaml"
+    url: "https://raw.githubusercontent.com/lwd-temp/anti-ip-attribution/main/generated/rule-provider.yaml"
     path: ./Rules/IPfake.yaml
 
   BiliBili:
     <<: *r
-    url: "https://raw.fastgit.org/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
     path: ./Rules/bilibili.yaml
 
   Disney:
@@ -569,7 +569,7 @@ rule-providers:
 
   Emby:
     <<: *r
-    url: "https://raw.fastgit.org/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml"
     path: ./Rules/Emby.yaml
 
   Game:
@@ -579,12 +579,12 @@ rule-providers:
 
   BanEasyPrivacy:
     <<: *r
-    url: "https://raw.fastgit.org/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
     path: ./Rules/BanEasyPrivacy.yaml
 
   Advertising:
     <<: *r
-    url: https://raw.fastgit.org/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
     path: ./Rules/Advertising.yaml
 
   Download:
@@ -616,7 +616,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     interval: 86400
-    url: https://raw.fastgit.org/soffchen/GeoIP2-CN/release/clash-rule-provider.yml
+    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml
     path: ./Rules/ipip.yaml
 
 rules:
