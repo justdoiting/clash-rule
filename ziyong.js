@@ -314,7 +314,7 @@ function main(config) {
 	"TikTok": {
       ...ruleProviderCommon,
       "behavior": "classical",
-      "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/TikTok/TikTok.yaml",
+      "url": "https://whatshub.top/rule/TikTok.list",
       "path": "./rules/TikTok.list"
 	},
     "Telegram": {
@@ -326,13 +326,13 @@ function main(config) {
     "Twitter": {
       ...ruleProviderCommon,
       "behavior": "classical",
-      "url": "https://github.com/Repcz/Tool/raw/X/Clash/Rules/Twitter.list",
+      "url": "https://whatshub.top/rule/Twitter.list",
       "path": "./rules/Twitter.list"
     },
     "AI": {
       ...ruleProviderCommon,
       "behavior": "classical",
-      "url": "https://github.com/Repcz/Tool/raw/X/Clash/Rules/AI.list",
+      "url": "https://whatshub.top/rule/OpenAI.list",
       "path": "./rules/AI.list"
     },
     "Global": {
@@ -344,7 +344,7 @@ function main(config) {
     "Microsoft": {
       ...ruleProviderCommon,
       "behavior": "classical",
-      "url": "https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Microsoft/Microsoft.list",
+      "url": "https://whatshub.top/rule/Microsoft.list",
       "path": "./rules/Microsoft.list"
     },
     "Lan": {
