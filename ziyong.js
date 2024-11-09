@@ -376,13 +376,13 @@ function main(config) {
     "RULE-SET,YouTube,YouTube",
     "RULE-SET,Telegram,电报消息",
     "RULE-SET,Twitter,推特消息",
-	"RULE-SET,TikTok,TikTok",
+    "RULE-SET,TikTok,TikTok",
     "GEOSITE,microsoft,微软服务",
     "GEOSITE,gfw,外网选择",
-	"RULE-SET,Global,外网选择",
+    "RULE-SET,Global,外网选择",
     "GEOIP,lan,DIRECT",
     "GEOIP,CN,DIRECT",
-	"RULE-SET,China,DIRECT",
+    "RULE-SET,China,DIRECT",
     "MATCH,漏网之鱼"
   ];
 
