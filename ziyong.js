@@ -240,7 +240,7 @@ function main(config) {
       "type": "url-test",
       "tolerance": 10,
       "include-all": true,
-      "filter": "法国|France|FR|france|fr|🇫🇷",
+      "filter": "法|France|FR|france|fr|🇫🇷",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
     },
     {
