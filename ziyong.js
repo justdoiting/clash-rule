@@ -222,7 +222,7 @@ function main(config) {
       "type": "url-test",
       "tolerance": 10,
       "include-all": true,
-      "filter": "Russia Federation|Russia|RU|russia federation|russia|ru|🇷🇺",
+      "filter": "俄|Russia Federation|Russia|RU|russia federation|russia|ru|🇷🇺",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
     },
     {
@@ -231,7 +231,7 @@ function main(config) {
       "type": "url-test",
       "tolerance": 10,
       "include-all": true,
-      "filter": "Korea|KR|korea|kr|🇰🇷",
+      "filter": "韩|Korea|KR|korea|kr|🇰🇷",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
     },
     {
@@ -240,7 +240,7 @@ function main(config) {
       "type": "url-test",
       "tolerance": 10,
       "include-all": true,
-      "filter": "France|FR|france|fr|🇫🇷",
+      "filter": "法国|France|FR|france|fr|🇫🇷",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
     },
     {
@@ -249,7 +249,7 @@ function main(config) {
       "type": "url-test",
       "tolerance": 10,
       "include-all": true,
-      "exclude-filter": "🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|🇷🇺|🇬🇧|中国|国内|CN|China|香港|hk|fr|hongkong|台|台湾|TW|taiwan|日本|东京|jp|Tokyo|japan|新加坡|sg|Singapore|美国|US|韩|kr|South Korea|俄|莫斯科|美|英|UK|RU|GB",
+      "exclude-filter": "🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|🇷🇺|🇬🇧|中国|国内|CN|China|香港|hk|fr|hongkong|台|台湾|TW|taiwan|日本|东京|jp|Tokyo|japan|新加坡|sg|Singapore|美国|US|韩|kr|South Korea|俄|莫斯科|美|英|法|UK|RU|GB",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UN.png"
     },
     {
