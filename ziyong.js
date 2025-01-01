@@ -257,7 +257,7 @@ function main(config) {
       "name": "自动选择",
       "type": "url-test",
       "tolerance": 10,
-      "proxies": ["手动选择", "香港节点", "美国节点", "新加坡节点", "日本节点", "台湾节点", "英国节点", "俄罗斯节点", "韩国节点", "法国节点", "其他地区"],
+      "proxies": ["手动选择", "美国节点", "新加坡节点", "日本节点", "台湾节点", "英国节点", "俄罗斯节点", "韩国节点", "法国节点", "其他地区"],
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png"
     },
     {
@@ -265,6 +265,7 @@ function main(config) {
       "name": "故障转移",
       "type": "fallback",
       "include-all": true,
+      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/ambulance.svg"
     },
     {
@@ -273,6 +274,7 @@ function main(config) {
       "type": "load-balance",
       "strategy": "consistent-hashing",
       "include-all": true,
+      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/merry_go.svg"
     },
     {
@@ -281,6 +283,7 @@ function main(config) {
       "type": "load-balance",
       "strategy": "round-robin",
       "include-all": true,
+      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/balance.svg"
     }
   ];
