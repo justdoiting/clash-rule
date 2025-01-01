@@ -265,7 +265,7 @@ function main(config) {
       "name": "故障转移",
       "type": "fallback",
       "include-all": true,
-      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
+      "exclude-filter": "港|🇭🇰|(?i)HK|(?i)Hong",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/ambulance.svg"
     },
     {
@@ -274,7 +274,7 @@ function main(config) {
       "type": "load-balance",
       "strategy": "consistent-hashing",
       "include-all": true,
-      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
+      "exclude-filter": "港|🇭🇰|(?i)HK|(?i)Hong",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/merry_go.svg"
     },
     {
@@ -283,7 +283,7 @@ function main(config) {
       "type": "load-balance",
       "strategy": "round-robin",
       "include-all": true,
-      "exclude-filter": 港|🇭🇰|(?i)HK|(?i)Hong
+      "exclude-filter": "港|🇭🇰|(?i)HK|(?i)Hong",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/balance.svg"
     }
   ];
