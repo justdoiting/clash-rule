@@ -384,7 +384,7 @@ function main(config) {
     "GEOSITE,gfw,外网选择",
     "RULE-SET,Global,外网选择",
     "GEOIP,lan,DIRECT",
-    "GEOIP,CN,DIRECT",
+    //"GEOIP,CN,DIRECT",
     "RULE-SET,China,DIRECT",
     "MATCH,漏网之鱼"
   ];
