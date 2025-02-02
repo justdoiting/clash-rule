@@ -380,7 +380,7 @@ function main(config) {
     "RULE-SET,Telegram,电报消息",
     "RULE-SET,Twitter,推特消息",
     "RULE-SET,TikTok,TikTok",
-    "GEOSITE,microsoft,微软服务",
+    "GEOSITE,microsoft,微软服务&GitHub",
     "GEOSITE,gfw,外网选择",
     "RULE-SET,Global,外网选择",
     "GEOIP,lan,DIRECT",
