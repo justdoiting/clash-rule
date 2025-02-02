@@ -14,7 +14,7 @@ const ruleProviderCommon = {
 // 策略组通用配置
 const groupBaseOption = {
   "interval": 300,
-  "url": "https://i.ytimg.com/generate_204",
+  "url": "http://captive.apple.com",
   "max-failed-times": 3,
 };
 
