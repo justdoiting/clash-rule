@@ -128,7 +128,7 @@ function main(config) {
     },
     {
       ...groupBaseOption,
-      "name": "微软服务",
+      "name": "微软服务&GitHub",
       "type": "select",
       "proxies": ["自动选择", "手动选择", "香港节点", "美国节点", "新加坡节点", "日本节点", "台湾节点", "英国节点", "俄罗斯节点", "韩国节点", "法国节点", "其他地区", "故障转移", "负载均衡(散列)", "负载均衡(轮询)", "DIRECT"],
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
