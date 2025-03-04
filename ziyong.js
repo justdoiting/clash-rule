@@ -45,7 +45,7 @@ function main(config) {
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"],
-    "nameserver": ["223.5.5.5", "119.29.29.29"]
+    "nameserver": ["https://223.5.5.5/dns-query", "https://doh.pub/dns-query"]
   };
 
   // 覆盖 geodata 配置
