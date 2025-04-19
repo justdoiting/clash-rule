@@ -367,6 +367,7 @@ function main(config) {
   // 覆盖规则
   config["rules"] = [
     "PROCESS-NAME,dnplayer.exe,外网选择",
+    "DOMAIN-SUFFIX,hjd2048.com,漏网之鱼",
     "DOMAIN-SUFFIX,mypikpak.com,漏网之鱼",
     "DOMAIN-SUFFIX,access.pikpakdrive.com,漏网之鱼",
     "DOMAIN-KEYWORD,bigo,外网选择",
