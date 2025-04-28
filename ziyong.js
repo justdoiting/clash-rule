@@ -31,7 +31,7 @@ function main(config) {
   config["mixed-port"] = "7890";
   config["tcp-concurrent"] = true;
   config["allow-lan"] = true;
-  config["ipv6"] = false;
+  config["ipv6"] = true;
   config["log-level"] = "info";
   config["unified-delay"] = "true";
   config["find-process-mode"] = "strict";
