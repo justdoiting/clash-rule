@@ -17,9 +17,18 @@ const groupBaseOption = {
   "url": "https://i.ytimg.com/generate_204",
   "max-failed-times": 3,
 };
-
+// 代理提供者配置
+const proxyProviders = {
+  "provider": {
+    type: "file",
+    interval: 3600,
+    path: "provider.yaml"
+  }
+};
 // 程序入口
 function main(config) {
+// 添加 proxy-providers 配置
+  config["proxy-providers"] = proxyProviders;	
   const proxyCount = config?.proxies?.length ?? 0;
   const proxyProviderCount =
     typeof config?.["proxy-providers"] === "object" ? Object.keys(config["proxy-providers"]).length : 0;
