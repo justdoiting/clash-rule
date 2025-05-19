@@ -380,7 +380,7 @@ function main(config) {
     "DOMAIN-SUFFIX,mypikpak.com,漏网之鱼",
     "DOMAIN-SUFFIX,access.pikpakdrive.com,漏网之鱼",
     "DOMAIN-KEYWORD,bigo,外网选择",
-    "DOMAIN-KEYWORD,cubetecn,外网选择",
+    //"DOMAIN-KEYWORD,cubetecn,外网选择",
     "PROCESS-NAME,parfait_crash_handler.exe,外网选择",
     "PROCESS-NAME,CapCut.exe,外网选择",
     "RULE-SET,IPfake,IP归属地伪装",
