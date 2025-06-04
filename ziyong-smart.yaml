@@ -1,0 +1,280 @@
+mixed-port: 7890
+tcp-concurrent: true
+allow-lan: true
+ipv6: false
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+find-process-mode: strict
+
+dns:
+    enable: true
+    listen: 0.0.0.0:1053
+    ipv6: false
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    fake-ip-filter: ["*", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
+    nameserver: ["https://unfiltered.adguard-dns.com/dns-query", "180.184.1.1"]
+
+geodata-mode: true
+geox-url:
+    geoip: https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+    geosite: https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+    mmdb: https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+    asn: https://mirror.ghproxy.com/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+
+sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
+
+tun:
+  enable: true
+  stack: mixed
+  device: utun
+  endpoint-independent-nat: true
+  auto-route: false
+  auto-detect-interface: false
+  auto-redirect: false
+  strict-route: false
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+#外部节点
+proxy-providers:
+
+  节点:
+    type: file
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    path: ./jiedian.yaml
+
+atm: &atm  
+  interval: 300
+  url: https://i.ytimg.com/generate_204
+  max-failed-times: 3
+  
+zhixuan: &zhixuan 
+   type: smart
+   include-all: true
+   uselightgbm: true
+   collectdata: true
+   interval: 300
+
+#策略组
+proxy-groups:
+
+    - name: 手动选择
+      <<: *atm
+      type: select
+      include-all: true
+      icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/main/src-tauri/icons/icon.png
+
+    - name: 漏网之鱼
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://img.icons8.com/?size=144&id=9Mz1BhM4ui54&format=png&color=000000
+
+    - name: 外网选择
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+
+    - name: YouTube
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
+    - name: 电报消息
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+
+    - name: 推特消息
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+
+    - name: 哔哩哔哩
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
+
+    - name: 微软服务&GitHub
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+
+    - name: IP归属地伪装
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
+
+    - name: Chat-GPT
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+
+    - name: TikTok
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
+
+#节点分区
+    - name: 香港智选
+      <<: *zhixuan
+      filter: (?i)🇭🇰|香港|(\b(HK|Hong)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+
+    - name: 美国智选
+      <<: *zhixuan
+      filter: (?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+
+    - name: 新加坡智选
+      <<: *zhixuan
+      filter: (?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+
+    - name: 日本智选
+      <<: *zhixuan
+      filter: (?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+
+    - name: 台湾智选
+      <<: *zhixuan
+      filter: (?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+
+    - name: 英国智选
+      <<: *zhixuan
+      filter: 英|🇬🇧|(?i)uk|(?i)Britain|(?i)eng|伦敦
+      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
+
+    - name: 俄罗斯智选
+      <<: *zhixuan
+      filter: 俄|Russia Federation|Russia|RU|russia federation|russia|ru|🇷🇺
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png
+
+    - name: 韩国智选
+      <<: *zhixuan
+      filter: 韩|Korea|KR|korea|kr|🇰🇷
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+
+    - name: 法国智选
+      <<: *zhixuan
+      filter: 法|France|FR|france|fr|🇫🇷
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+
+    - name: 其他地区智选
+      <<: *zhixuan
+      exclude-filter: 🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|🇷🇺|🇬🇧|中国|国内|CN|China|香港|hk|fr|hongkong|台|台湾|TW|taiwan|日本|东京|jp|Tokyo|japan|新加坡|sg|Singapore|美国|US|韩|kr|South Korea|俄|莫斯科|美|英|法|UK|RU|GB
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UN.png
+
+    - name: 所有智选
+      <<: *zhixuan
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+
+#规则集
+guize: &guize
+   type: http
+   format: text
+   interval: 86400
+   behavior: classical
+
+rule-providers:
+    IPfake:
+      <<: *guize
+      url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/surge.list
+      path: ./rules/IPfake.list
+
+    BiliBili:
+      <<: *guize
+      url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
+      path: /rules/BiliBili.list
+
+    China:
+      <<: *guize
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax.list
+      path: ./rules/China.list
+
+    YouTube:
+      <<: *guize
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/YouTube.list
+      path: ./rules/YouTube.list
+
+    TikTok:
+      <<: *guize
+      url: https://whatshub.top/rule/TikTok.list
+      path: ./rules/TikTok.list
+
+    Telegram:
+      <<: *guize
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Telegram.list
+      path: ./rules/Telegram.list
+
+    Twitter:
+      <<: *guize
+      url: https://whatshub.top/rule/Twitter.list
+      path: ./rules/Twitter.list
+
+    AI:
+      <<: *guize
+      url: https://whatshub.top/rule/OpenAI.list
+      path: ./rules/AI.list
+
+    Global:
+      <<: *guize
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list
+      path: ./rules/Global.list
+
+    Microsoft:
+      <<: *guize
+      url: https://whatshub.top/rule/Microsoft.list
+      path: ./rules/Microsoft.list
+
+    Lan:
+      <<: *guize
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Lan.list
+      path: ./rules/Lan.list
+
+    ProxyGFW:
+      <<: *guize
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/ProxyGFW.list
+      path: ./rules/ProxyGFW.list
+
+rules:
+    - PROCESS-NAME,dnplayer.exe,外网选择
+    - DOMAIN-SUFFIX,hjd2048.com,漏网之鱼
+    - DOMAIN-SUFFIX,mypikpak.com,漏网之鱼
+    - DOMAIN-SUFFIX,access.pikpakdrive.com,漏网之鱼
+    - DOMAIN-KEYWORD,bigo,外网选择
+    - DOMAIN-KEYWORD,cubetecn,外网选择
+    - PROCESS-NAME,parfait_crash_handler.exe,外网选择
+    - PROCESS-NAME,CapCut.exe,外网选择
+    - RULE-SET,IPfake,IP归属地伪装
+    - RULE-SET,AI,Chat-GPT
+    - RULE-SET,BiliBili,哔哩哔哩
+    - RULE-SET,YouTube,YouTube
+    - RULE-SET,Telegram,电报消息
+    - RULE-SET,Twitter,推特消息
+    - RULE-SET,TikTok,TikTok
+    - GEOSITE,microsoft,微软服务&GitHub
+    - GEOSITE,gfw,外网选择
+    - RULE-SET,Global,外网选择
+    - GEOIP,lan,DIRECT
+    - GEOIP,CN,DIRECT
+    - RULE-SET,China,DIRECT
+    - MATCH,漏网之鱼
