@@ -42,7 +42,7 @@ profile:
 #外部节点
 proxy-providers:
 
-  节点:
+  零散节点:
     type: file
     health-check:
       enable: true
