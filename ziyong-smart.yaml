@@ -58,8 +58,6 @@ atm: &atm
 zhixuan: &zhixuan 
    type: smart
    include-all: true
-   uselightgbm: true
-   collectdata: true
    interval: 300
 
 #策略组
