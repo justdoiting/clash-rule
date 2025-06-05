@@ -13,7 +13,7 @@ dns:
     ipv6: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["*", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
     nameserver: ["https://unfiltered.adguard-dns.com/dns-query", "180.76.76.76"]
 
 geodata-mode: true
