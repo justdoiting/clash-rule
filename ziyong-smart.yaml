@@ -193,6 +193,12 @@ guize: &guize
    behavior: classical
 
 rule-providers:
+    Other:
+      type: file
+      format: text
+      behavior: classical
+      path: ./rules/other.list
+
     IPfake:
       <<: *guize
       url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/surge.list
@@ -254,6 +260,7 @@ rule-providers:
       path: ./rules/ProxyGFW.list
 
 rules:
+    - RULE-SET,Other,漏网之鱼
     - PROCESS-NAME,dnplayer.exe,外网选择
     - DOMAIN-SUFFIX,hjd2048.com,漏网之鱼
     - DOMAIN-SUFFIX,mypikpak.com,漏网之鱼
