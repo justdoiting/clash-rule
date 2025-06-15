@@ -54,7 +54,7 @@ function main(config) {
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"],
-    "nameserver": ["https://unfiltered.adguard-dns.com/dns-query", "https://doh.pub/dns-query"]
+    "nameserver": ["119.29.29.29", "180.76.76.76"]
   };
 
   // 覆盖 geodata 配置
@@ -375,6 +375,9 @@ function main(config) {
 
   // 覆盖规则
   config["rules"] = [
+    "DOMAIN,m.pp.weimipopo.com,漏网之鱼",
+    "DOMAIN,api.pp.weimipopo.com,漏网之鱼",
+    "DOMAIN,img.pp.weimipopo.com,漏网之鱼",
     "PROCESS-NAME,dnplayer.exe,外网选择",
     "DOMAIN-SUFFIX,hjd2048.com,漏网之鱼",
     "DOMAIN-SUFFIX,mypikpak.com,漏网之鱼",
