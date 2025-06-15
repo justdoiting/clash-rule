@@ -197,7 +197,7 @@ rule-providers:
       type: file
       format: text
       behavior: classical
-      path: ./rules/other.list
+      path: ./rules/Other.list
 
     IPfake:
       <<: *guize
