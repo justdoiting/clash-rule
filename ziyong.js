@@ -53,8 +53,9 @@ function main(config) {
     "ipv6": false,
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
-    "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"],
+    "fake-ip-filter": ["geosite:cn", "+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"],
     "nameserver": ["119.29.29.29", "180.76.76.76"]
+    "fallback": ["1.1.1.1", "9.9.9.9"]
   };
 
   // 覆盖 geodata 配置
