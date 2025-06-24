@@ -19,10 +19,15 @@ const groupBaseOption = {
 };
 // 代理提供者配置
 const proxyProviders = {
-  "provider": {
+  "自建节点": {
     type: "file",
     interval: 3600,
-    path: "provider.yaml"
+    path: "zijian.yaml",
+
+  "公益节点": {
+    type: "file",
+    interval: 3600,
+    path: "gongyi.yaml"
   }
 };
 // 程序入口
