@@ -22,7 +22,8 @@ const proxyProviders = {
   "自建节点": {
     type: "file",
     interval: 3600,
-    path: "zijian.yaml",
+    path: "zijian.yaml"
+  };
 
   "公益节点": {
     type: "file",
