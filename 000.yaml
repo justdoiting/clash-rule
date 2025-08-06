@@ -20,6 +20,8 @@ dns:
 geodata-mode: true
 geox-url:
   geosite: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/geosite-all.dat"
+  geosite2: "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box/geosite.db"
+  geoip2: "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box/geoip.db"
   geoip: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/geoip.dat"
   mmdb: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/Country.mmdb"
   asn: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/Country-ASN.mmdb"
