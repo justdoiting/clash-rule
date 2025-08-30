@@ -98,7 +98,7 @@ proxy-groups:
     - name: 漂漂切换
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["漂漂专用", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
 
     - name: 杂七杂八
@@ -230,6 +230,15 @@ proxy-groups:
       type: relay
       proxies: ["前置节点", "落地节点"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ULB.png
+
+    - name: 漂漂专用
+      type: url-test
+      include-all: true
+      tolerance: 15
+      interval: 150
+      expected-status: 204 # 当健康检查返回状态码与期望值不符时，认为节点不可用
+      url: "https://m.pp.weimipopo.com/live/preview.html"
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
 
 guize: &guize
    type: http
