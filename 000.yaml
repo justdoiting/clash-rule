@@ -59,6 +59,7 @@ atm: &atm
   
 zhixuan: &zhixuan 
    type: url-test
+   url: https://i.ytimg.com/generate_204
    include-all: true
    tolerance: 50
    interval: 300
