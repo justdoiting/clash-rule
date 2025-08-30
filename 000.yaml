@@ -130,7 +130,7 @@ proxy-groups:
     - name: 哔哩哔哩
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
     - name: 微软服务&GitHub
@@ -142,7 +142,7 @@ proxy-groups:
     - name: IP归属地伪装
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理"]
       icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
 
     - name: Chat-GPT
