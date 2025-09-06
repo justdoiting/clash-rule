@@ -272,7 +272,7 @@ rule-providers:
 
     YouTube:
       <<: *guize
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/YouTube.list
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/YouTube.list
       path: ./rules/YouTube.list
 
     TikTok:
@@ -282,7 +282,7 @@ rule-providers:
 
     Telegram:
       <<: *guize
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Telegram.list
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Telegram.list
       path: ./rules/Telegram.list
 
     Twitter:
@@ -307,12 +307,12 @@ rule-providers:
 
     Lan:
       <<: *guize
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Lan.list
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
       path: ./rules/Lan.list
 
     ProxyGFW:
       <<: *guize
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/ProxyGFW.list
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/ProxyGFW.list
       path: ./rules/ProxyGFW.list
 
 rules:
