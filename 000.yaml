@@ -245,7 +245,7 @@ proxy-groups:
       tolerance: 15
       interval: 150
       expected-status: 304/200-209 # 当健康检查返回状态码与期望值不符时，认为节点不可用
-      url: "https://m.pp.weimipopo.com/live/preview.html"
+      url: "https://img.pp.weimipopo.com"
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
 
 guize: &guize
