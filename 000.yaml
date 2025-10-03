@@ -311,6 +311,11 @@ rule-providers:
       url: https://whatshub.top/rule/Microsoft.list
       path: ./rules/Microsoft.list
 
+    Github:
+      <<: *guize
+      url: https://whatshub.top/rule/GitHub.list
+      path: ./rules/Github.list
+
     Lan:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
@@ -343,6 +348,7 @@ rules:
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
     - RULE-SET,Microsoft,微软服务&GitHub
+    - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,ProxyGFW,外网选择
     - RULE-SET,Global,外网选择
     - GEOIP,lan,DIRECT
