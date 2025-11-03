@@ -13,7 +13,7 @@ dns:
     ipv6: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"]
     nameserver: ["119.29.29.29", "180.76.76.76", "180.184.1.1"]
     fallback: ["1.1.1.1", "64.6.64.6", "94.140.14.140"]
 
