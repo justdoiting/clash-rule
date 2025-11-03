@@ -284,7 +284,5 @@ rules:
     - RULE-SET,Microsoft,微软服务&GitHub
     - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,ProxyGFW,外网选择
-    - GEOIP,lan,DIRECT
-    - GEOIP,CN,DIRECT
     - RULE-SET,China,DIRECT
     - MATCH,漏网之鱼
