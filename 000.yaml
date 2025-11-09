@@ -15,7 +15,7 @@ dns:
     fake-ip-range: 198.18.0.1/16
     fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
     nameserver: ["https://sm2.doh.pub/dns-query", "2400:da00::6666", "https://dns.alidns.com/dns-query", "2001:dc7:1000::1"]
-    fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
+    fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query", "2620:74:1b::1:1"]
 
 geodata-mode: true
 geox-url:
