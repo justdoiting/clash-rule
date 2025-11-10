@@ -276,6 +276,11 @@ rule-providers:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax.list
       path: ./rules/China.list
 
+   CNASN:
+      <<: *guize
+      url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
+      path: ./rules/CNASN.list
+
     YouTube:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/YouTube.list
@@ -352,6 +357,7 @@ rules:
     - RULE-SET,ProxyGFW,外网选择
     - RULE-SET,Global,外网选择
     - GEOIP,lan,DIRECT
+    - RULE-SET,CNASN,DIRECT
     - GEOIP,CN,DIRECT
     - RULE-SET,China,DIRECT
     - MATCH,漏网之鱼
