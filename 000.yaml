@@ -13,7 +13,7 @@ dns:
     ipv6: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "geosite:cn"]
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"]
     nameserver: ["https://doh.pub/dns-query", "2402:f000:1:416:101:6:6:6", "https://dns.alidns.com/dns-query", "2001:dc7:1000::1"]
     fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query", "2620:74:1b::1:1"]
 
@@ -356,8 +356,7 @@ rules:
     - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,ProxyGFW,外网选择
     - RULE-SET,Global,外网选择
-    - GEOIP,lan,DIRECT
+    - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
-    - GEOIP,CN,DIRECT
     - RULE-SET,China,DIRECT
     - MATCH,漏网之鱼
