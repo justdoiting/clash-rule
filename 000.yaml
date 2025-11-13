@@ -17,15 +17,6 @@ dns:
     nameserver: ["https://doh.pub/dns-query", "2402:f000:1:416:101:6:6:6", "https://dns.alidns.com/dns-query", "2001:dc7:1000::1"]
     fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query", "2620:74:1b::1:1"]
 
-geodata-mode: true
-geox-url:
-  geosite: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/geosite-all.dat"
-  geosite2: "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box/geosite.db"
-  geoip2: "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box/geoip.db"
-  geoip: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/geoip.dat"
-  mmdb: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/Country.mmdb"
-  asn: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo/Country-ASN.mmdb"
-
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
 tun:
