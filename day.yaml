@@ -11,11 +11,12 @@ dns:
     enable: true
     listen: 0.0.0.0:1053
     ipv6: true
+    prefer-h3: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"]
-    nameserver: ["119.29.29.29", "180.76.76.76", "180.184.1.1"]
-    fallback: ["1.1.1.1", "64.6.64.6", "94.140.14.140"]
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "rule-set:CN"]
+    nameserver: ["https://doh.pub/dns-query", "2402:f000:1:416:101:6:6:6", "2001:dc7:1000::1", "https://dns.alidns.com/dns-query", "https://doh.360.cn/dns-query"]
+    fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -41,7 +42,11 @@ atm: &atm
 zhixuan: &zhixuan 
    type: url-test
    include-all: true
+   url: https://i.ytimg.com/generate_204
+   max-failed-times: 3
    interval: 300
+   tolerance: 50
+   lazy: true
 
 proxy-groups:
 
@@ -68,7 +73,7 @@ proxy-groups:
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-      
+
     - name: YouTube
       <<: *atm
       type: select
@@ -98,12 +103,6 @@ proxy-groups:
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-
-    - name: IP归属地伪装
-      <<: *atm
-      type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
-      icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
 
     - name: Chat-GPT
       <<: *atm
@@ -170,28 +169,6 @@ proxy-groups:
     - name: 所有智选
       <<: *zhixuan
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
-    
-    - name: 前置节点
-      type: url-test
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
-      interval: 300
-      url: https://i.ytimg.com/generate_204
-      max-failed-times: 3
-      icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Rocket.png
-
-    - name: 落地节点
-      type: url-test
-      icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Domestic.png
-      include-all: true
-      interval: 300
-      url: https://i.ytimg.com/generate_204
-      max-failed-times: 3
-      filter: \|(0|([1-9]|(1\d|2[0-5]))%)\|
-
-    - name: 链式代理
-      type: relay
-      proxies: ["前置节点", "落地节点"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ULB.png
 
 guize: &guize
    type: http
@@ -201,25 +178,31 @@ guize: &guize
 
 rule-providers:
 
-    IPfake:
-      <<: *guize
-      url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/surge.list
-      path: ./rules/IPfake.list
-
     BiliBili:
       <<: *guize
       url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
       path: /rules/BiliBili.list
 
-    China:
-      <<: *guize
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax.list
-      path: ./rules/China.list
-
-   CNASN:
+    CNASN:
       <<: *guize
       url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
       path: ./rules/CNASN.list
+
+    CN:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
+      interval: 86400
+      path: ./rules/CN.mrs
+
+    CNIP:
+      type: http
+      format: mrs
+      behavior: ipcidr
+      url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
+      interval: 86400
+      path: ./rules/CNIP.mrs
 
     YouTube:
       <<: *guize
@@ -246,11 +229,6 @@ rule-providers:
       url: https://whatshub.top/rule/OpenAI.list
       path: ./rules/AI.list
 
-    Global:
-      <<: *guize
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list
-      path: ./rules/Global.list
-
     Microsoft:
       <<: *guize
       url: https://whatshub.top/rule/Microsoft.list
@@ -266,13 +244,15 @@ rule-providers:
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
       path: ./rules/Lan.list
 
-    ProxyGFW:
-      <<: *guize
-      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/ProxyGFW.list
-      path: ./rules/ProxyGFW.list
+    Proxy:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Proxy_Mihomo.mrs
+      interval: 86400
+      path: ./rules/Proxy.mrs
 
 rules:
-    - RULE-SET,IPfake,IP归属地伪装
     - RULE-SET,AI,Chat-GPT
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
@@ -281,7 +261,9 @@ rules:
     - RULE-SET,TikTok,TikTok
     - RULE-SET,Microsoft,微软服务&GitHub
     - RULE-SET,Github,微软服务&GitHub
-    - RULE-SET,ProxyGFW,外网选择
+    - RULE-SET,Proxy,外网选择
+    - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
-    - RULE-SET,China,DIRECT
+    - RULE-SET,CNIP,DIRECT,NO-RESOLVE
+    - RULE-SET,CN,DIRECT
     - MATCH,漏网之鱼
