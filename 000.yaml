@@ -73,85 +73,85 @@ proxy-groups:
     - name: 漏网之鱼
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://img.icons8.com/?size=144&id=9Mz1BhM4ui54&format=png&color=000000
 
     - name: 外网选择
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
     - name: BIGO切换
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
 
     - name: 漂漂切换
       <<: *atm
       type: select
-      proxies: ["漂漂专用", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["漂漂专用", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
 
     - name: ST下载
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/stripchat-seeklogo.png
    
     - name: 杂七杂八
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png
 
     - name: YouTube
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 
     - name: 电报消息
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
     - name: 推特消息
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
 
     - name: 哔哩哔哩
       <<: *atm
       type: select
-      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理"]
+      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
     - name: 微软服务&GitHub
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
 
     - name: IP归属地伪装
       <<: *atm
       type: select
-      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理"]
+      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
 
     - name: Chat-GPT
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
 
     - name: TikTok
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
 
     - name: 香港智选
@@ -207,28 +207,6 @@ proxy-groups:
     - name: 所有智选
       <<: *zhixuan
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
-    
-    - name: 前置节点
-      type: url-test
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
-      interval: 300
-      url: https://i.ytimg.com/generate_204
-      max-failed-times: 3
-      icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Rocket.png
-
-    - name: 落地节点
-      type: url-test
-      icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Domestic.png
-      include-all: true
-      interval: 300
-      url: https://i.ytimg.com/generate_204
-      max-failed-times: 3
-      filter: \|(0|([1-9]|(1\d|2[0-5]))%)\|
-
-    - name: 链式代理
-      type: relay
-      proxies: ["前置节点", "落地节点"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ULB.png
 
     - name: 漂漂专用
       type: url-test
