@@ -245,7 +245,7 @@ rule-providers:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax.list
       path: ./rules/China.list
 
-   CNASN:
+    CNASN:
       <<: *guize
       url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
       path: ./rules/CNASN.list
