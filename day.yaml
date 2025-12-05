@@ -97,18 +97,6 @@ proxy-groups:
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
-    - name: 杂七杂八
-      <<: *atm
-      type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png
-
-    - name: ST下载
-      <<: *atm
-      type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/stripchat-seeklogo.png
-
     - name: YouTube
       <<: *atm
       type: select
@@ -304,10 +292,6 @@ rule-providers:
       path: ./rules/Proxy.mrs
 
 rules:
-    - RULE-SET,Other,杂七杂八
-    - PROCESS-NAME,javaw.exe,ST下载
-    - DOMAIN-KEYWORD,bigo,手动选择
-    - DOMAIN-KEYWORD,cubetecn,手动选择
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
