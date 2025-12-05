@@ -11,11 +11,14 @@ dns:
     enable: true
     listen: 0.0.0.0:1053
     ipv6: true
+    respect-rules: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com"]
-    nameserver: ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "https://dns.alidns.com/dns-query", "[2001:dc7:1000::1]"]
-    fallback: ["https://cloudflare-dns.com/dns-query", "2a02:6b8::feed:0ff", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query", "[2620:74:1b::1:1]"]
+    fake-ip-range6: fdfe:dcba:9876::1/64
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com","rule-set:CN"]
+    nameserver-policy: {"rule-set:CN": ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "180.184.1.1", "180.76.76.76"]}
+    nameserver: ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "223.5.5.5", "https://doh.360.cn/dns-query"]
+    proxy-server-nameserver: ["https://cloudflare-dns.com/dns-query", "[2a02:6b8::feed:0ff]", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -142,7 +145,7 @@ proxy-groups:
       proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
 
-    - name: Chat-GPT
+    - name: AI平台
       <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
@@ -272,7 +275,7 @@ rule-providers:
 
     AI:
       <<: *guize
-      url: https://whatshub.top/rule/OpenAI.list
+      url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list
       path: ./rules/AI.list
 
     Global:
@@ -315,7 +318,7 @@ rules:
     - PROCESS-NAME,parfait_crash_handler.exe,外网选择
     - PROCESS-NAME,CapCut.exe,外网选择
     - RULE-SET,IPfake,IP归属地伪装
-    - RULE-SET,AI,Chat-GPT
+    - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Telegram,电报消息
