@@ -226,22 +226,6 @@ rule-providers:
       url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN_No_Resolve.list
       path: ./rules/CNASN.list
 
-    CN:
-      type: http
-      format: mrs
-      behavior: domain
-      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
-      interval: 86400
-      path: ./rules/CN.mrs
-
-    CNIP:
-      type: http
-      format: mrs
-      behavior: ipcidr
-      url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
-      interval: 86400
-      path: ./rules/CNIP.mrs
-
     YouTube:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/YouTube.list
@@ -302,6 +286,4 @@ rules:
     - RULE-SET,Proxy,外网选择
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
-    - RULE-SET,CNIP,DIRECT,no-resolve
-    - RULE-SET,CN,DIRECT
     - MATCH,漏网之鱼
