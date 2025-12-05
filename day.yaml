@@ -4,19 +4,21 @@ allow-lan: true
 ipv6: true
 log-level: info
 unified-delay: true
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 find-process-mode: strict
 
 dns:
     enable: true
     listen: 0.0.0.0:1053
     ipv6: true
-    prefer-h3: true
+    respect-rules: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
-    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com", "rule-set:CN"]
+    fake-ip-range6: fdfe:dcba:9876::1/64
+    fake-ip-filter: ["+.lan", "+.local", "+.direct", "+.msftconnecttest.com", "+.msftncsi.com","rule-set:CN"]
+    nameserver-policy: {"rule-set:CN": ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "https://dns.alidns.com/dns-query", "https://doh.360.cn/dns-query"]}
     nameserver: ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "https://dns.alidns.com/dns-query", "https://doh.360.cn/dns-query"]
-    fallback: ["https://cloudflare-dns.com/dns-query", "[2a02:6b8::feed:0ff]", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
+    proxy-server-nameserver: ["https://cloudflare-dns.com/dns-query", "[2a02:6b8::feed:0ff]", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -34,19 +36,40 @@ profile:
   store-selected: true
   store-fake-ip: true
 
+proxy-providers:
+
+  机场节点:
+    type: file
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.google-analytics.com/generate_204
+      lazy: true
+    path: ./jcjd.yaml
+
+  自建节点:
+    type: file
+    path: ./jiedian.yaml
+  
+  公益节点:
+    type: file
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.google-analytics.com/generate_204
+    path: ./free.yaml
+
 atm: &atm  
   interval: 300
-  url: https://i.ytimg.com/generate_204
+  url: http://www.google-analytics.com/generate_204
   max-failed-times: 3
   
 zhixuan: &zhixuan 
-   type: url-test
+   type: smart
+   strategy: sticky-sessions
+   prefer-asn: true
    include-all: true
-   url: https://i.ytimg.com/generate_204
-   max-failed-times: 3
    interval: 300
-   tolerance: 50
-   lazy: true
 
 proxy-groups:
 
@@ -74,6 +97,18 @@ proxy-groups:
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
+    - name: 杂七杂八
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png
+
+    - name: ST下载
+      <<: *atm
+      type: select
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/stripchat-seeklogo.png
+
     - name: YouTube
       <<: *atm
       type: select
@@ -83,7 +118,7 @@ proxy-groups:
     - name: 电报消息
       <<: *atm
       type: select
-      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      proxies: ["IPv6", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
     - name: 推特消息
@@ -91,6 +126,7 @@ proxy-groups:
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+
 
     - name: 哔哩哔哩
       <<: *atm
@@ -104,7 +140,7 @@ proxy-groups:
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
 
-    - name: Chat-GPT
+    - name: AI平台
       <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
@@ -166,8 +202,18 @@ proxy-groups:
       exclude-filter: 🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|🇫🇷|🇰🇷|🇷🇺|🇬🇧|中国|国内|CN|China|香港|hk|fr|hongkong|台|台湾|TW|taiwan|日本|东京|jp|Tokyo|japan|新加坡|sg|Singapore|美国|US|韩|kr|South Korea|俄|莫斯科|美|英|法|UK|RU|GB
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UN.png
 
-    - name: 所有智选
+    - name: IPv6
       <<: *zhixuan
+      filter: IPv6
+      icon: https://img.icons8.com/?size=100&id=QN8nJ2a7Gtij&format=png&color=000000
+
+    - name: 所有智选
+      type: fallback
+      url: https://connectivitycheck.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
+      include-all: true 
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
 
 guize: &guize
@@ -177,6 +223,11 @@ guize: &guize
    behavior: classical
 
 rule-providers:
+    Other:
+      type: file
+      format: text
+      behavior: classical
+      path: ./rules/Other.list
 
     BiliBili:
       <<: *guize
@@ -185,7 +236,7 @@ rule-providers:
 
     CNASN:
       <<: *guize
-      url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
+      url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN_No_Resolve.list
       path: ./rules/CNASN.list
 
     CN:
@@ -226,7 +277,7 @@ rule-providers:
 
     AI:
       <<: *guize
-      url: https://whatshub.top/rule/OpenAI.list
+      url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list
       path: ./rules/AI.list
 
     Microsoft:
@@ -253,7 +304,11 @@ rule-providers:
       path: ./rules/Proxy.mrs
 
 rules:
-    - RULE-SET,AI,Chat-GPT
+    - RULE-SET,Other,杂七杂八
+    - PROCESS-NAME,javaw.exe,ST下载
+    - DOMAIN-KEYWORD,bigo,手动选择
+    - DOMAIN-KEYWORD,cubetecn,手动选择
+    - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Telegram,电报消息
