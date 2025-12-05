@@ -138,12 +138,6 @@ proxy-groups:
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
 
-    - name: IP归属地伪装
-      <<: *atm
-      type: select
-      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
-      icon: https://img.icons8.com/?size=144&id=9A9UJY1V3Zw9&format=png&color=000000
-
     - name: AI平台
       <<: *atm
       type: select
@@ -232,23 +226,10 @@ rule-providers:
       behavior: classical
       path: ./rules/Other.list
 
-    IPfake:
-      <<: *guize
-      url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/surge.list
-      path: ./rules/IPfake.list
-
     BiliBili:
       <<: *guize
       url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
       path: /rules/BiliBili.list
-
-    CN:
-      type: http
-      format: mrs
-      behavior: domain
-      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
-      interval: 86400
-      path: ./rules/CN.mrs
 
     CNASN:
       <<: *guize
@@ -317,7 +298,6 @@ rules:
     - DOMAIN-KEYWORD,cubetecn,BIGO切换
     - PROCESS-NAME,parfait_crash_handler.exe,外网选择
     - PROCESS-NAME,CapCut.exe,外网选择
-    - RULE-SET,IPfake,IP归属地伪装
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
@@ -329,5 +309,4 @@ rules:
     - RULE-SET,Proxy,外网选择
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
-    - RULE-SET,CN,DIRECT
     - MATCH,漏网之鱼
