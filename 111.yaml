@@ -216,14 +216,6 @@ rule-providers:
       url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
       path: /rules/BiliBili.list
 
-    CN:
-      type: http
-      format: mrs
-      behavior: domain
-      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
-      interval: 86400
-      path: ./rules/CN.mrs
-
     CNASN:
       <<: *guize
       url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
@@ -293,5 +285,4 @@ rules:
     - RULE-SET,Proxy,外网选择
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
-    - RULE-SET,CN,DIRECT
     - MATCH,漏网之鱼
