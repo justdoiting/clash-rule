@@ -65,10 +65,10 @@ atm: &atm
   max-failed-times: 3
   
 zhixuan: &zhixuan 
-   type: smart
-   strategy: sticky-sessions
-   prefer-asn: true
+   type: url-test
+   url: https://i.ytimg.com/generate_204
    include-all: true
+   tolerance: 50
    interval: 300
 
 proxy-groups:
