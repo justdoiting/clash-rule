@@ -11,7 +11,6 @@ dns:
     enable: true
     listen: 0.0.0.0:1053
     ipv6: true
-    respect-rules: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
     fake-ip-range6: fdfe:dcba:9876::1/64
