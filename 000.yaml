@@ -279,6 +279,22 @@ rule-providers:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
       path: ./rules/Lan.list
+    
+    CNdirect:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
+      interval: 86400
+      path: ./rules/CNdirect.mrs
+
+    CNip:
+      type: http
+      format: mrs
+      behavior: ipcdir
+      url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
+      interval: 86400
+      path: ./rules/CNip.mrs
 
     Proxy:
       type: http
@@ -311,6 +327,8 @@ rules:
     - RULE-SET,Microsoft,微软服务&GitHub
     - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,Proxy,外网选择
+    - RULE-SET,CNip,DIRECT
+    - RULE-SET,CNdirect,DIRECT
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
     - MATCH,漏网之鱼
