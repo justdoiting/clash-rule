@@ -334,8 +334,8 @@ rules:
     - RULE-SET,Microsoft,微软服务&GitHub
     - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,Proxy,外网选择
-    - RULE-SET,CNip,DIRECT
-    - RULE-SET,CNdirect,DIRECT
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
+    - RULE-SET,CNip,DIRECT
+    - RULE-SET,CNdirect,DIRECT
     - MATCH,漏网之鱼
