@@ -7,6 +7,13 @@ unified-delay: true
 global-client-fingerprint: chrome
 find-process-mode: strict
 
+geodata-mode: true
+geox-url:
+  geoip: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/mojolabs-id/GeoLite2-Database/releases/GeoLite2-Country.mmdb
+  asn: https://github.com/mojolabs-id/GeoLite2-Database/releases/GeoLite2-ASN.mmdb
+
 dns:
     enable: true
     listen: 0.0.0.0:1053
@@ -263,6 +270,22 @@ rule-providers:
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
       path: ./rules/Lan.list
 
+    CNIP:
+      type: http
+      format: mrs
+      behavior: ipcidr
+      url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
+      interval: 86400
+      path: ./rules/CNIP.mrs
+
+    CNSITE:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
+      interval: 86400
+      path: ./rules/CNSITE.mrs
+
     Proxy:
       type: http
       format: mrs
@@ -287,4 +310,6 @@ rules:
     - RULE-SET,Proxy,外网选择
     - RULE-SET,Lan,DIRECT
     - RULE-SET,CNASN,DIRECT
+    - RULE-SET,CNIP,DIRECT
+    - RULE-SET,CNSITE,DIRECT
     - MATCH,漏网之鱼
