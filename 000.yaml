@@ -291,7 +291,7 @@ rule-providers:
     CNip:
       type: http
       format: mrs
-      behavior: ipcdir
+      behavior: ipcidr
       url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
       interval: 86400
       path: ./rules/CNip.mrs
