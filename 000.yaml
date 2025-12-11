@@ -12,7 +12,7 @@ geox-url:
   geoip: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
   geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
   mmdb: https://github.com/mojolabs-id/GeoLite2-Database/releases/GeoLite2-Country.mmdb
-  asn: https://github.com/mojolabs-id/GeoLite2-Database/releases/GeoLite2-ASN.mmdb
+  asn: https://github.com/justdoiting/clash-rule/raw/refs/heads/main/ASN.mmdb
 
 dns:
     enable: true
