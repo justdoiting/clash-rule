@@ -91,7 +91,7 @@ proxy-groups:
     - name: 电报消息
       <<: *atm
       type: select
-      proxies: ["IPv6", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
     - name: 推特消息
@@ -178,7 +178,7 @@ proxy-groups:
     - name: 所有智选
       type: fallback
       url: https://connectivitycheck.gstatic.com/generate_204
-      interval: 300
+      interval: 111
       timeout: 1000
       lazy: true
       proxies: ["香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
