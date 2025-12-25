@@ -15,8 +15,9 @@ geox-url:
   asn: https://github.com/mojolabs-id/GeoLite2-Database/releases/GeoLite2-ASN.mmdb
 
 dns:
+    dns:
     enable: true
-    listen: 0.0.0.0:1053
+    listen: "[::]:1053"
     ipv6: true
     enhanced-mode: fake-ip
     fake-ip-filter-mode: whitelist
@@ -24,9 +25,9 @@ dns:
     fake-ip-range6: fdfe:dcba:9876::1/64
     fake-ip-filter: ["rule-set:Proxy"]
     respect-rules: true
-    default-nameserver: ["119.29.29.29", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "180.184.1.1", "180.76.76.76"]
-    nameserver: ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "223.5.5.5", "1.1.1.1"]
-    proxy-server-nameserver: ["https://cloudflare-dns.com/dns-query", "[2a02:6b8::feed:0ff]", "https://dns.adguard.com/dns-query", "https://dns.quad9.net/dns-query"]
+    default-nameserver: ["1.2.4.8", "119.29.29.29", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "180.184.1.1", "180.76.76.76"]
+    nameserver: ["https://doh.pub/dns-query", "[2402:f000:1:416:101:6:6:6]", "[2001:dc7:1000::1]", "223.5.5.5", "https://1.1.1.1/dns-query"]
+    proxy-server-nameserver: ["https://cloudflare-dns.com/dns-query", "[2a02:6b8::feed:0ff]", "https://unfiltered.adguard-dns.com/dns-query", "https://dns.quad9.net/dns-query", "https://dns.google/dns-query", "[2620:74:1b::1:1]", "80.80.80.80"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
