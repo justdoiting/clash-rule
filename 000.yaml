@@ -312,6 +312,7 @@ rule-providers:
       path: ./rules/Proxy.mrs
 
 rules:
+    - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - RULE-SET,Other,杂七杂八
     - DOMAIN,m.pp.weimipopo.com,漂漂切换
