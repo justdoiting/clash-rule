@@ -30,12 +30,7 @@ sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: tru
 tun:
   enable: true
   stack: mixed
-  device: utun
-  endpoint-independent-nat: true
-  auto-route: false
-  auto-detect-interface: false
-  auto-redirect: false
-  strict-route: false
+  dns-hijack: [any:53]
 
 profile:
   store-selected: true
