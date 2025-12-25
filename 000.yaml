@@ -19,6 +19,7 @@ dns:
   ipv6: true
   enhanced-mode: redir-host
   listen: :1053
+  prefer-h3: true
   nameserver: [223.5.5.5, 119.29.29.29]
   fallback: [https://1.1.1.1/dns-query, https://8.8.8.8/dns-query, tls://dns.google:853]
 
