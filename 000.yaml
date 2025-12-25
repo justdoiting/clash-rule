@@ -97,13 +97,7 @@ proxy-groups:
       <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
-
-    - name: 漂漂切换
-      <<: *atm
-      type: select
-      proxies: ["漂漂专用", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.pn
 
     - name: ST下载
       <<: *atm
@@ -215,15 +209,6 @@ proxy-groups:
       proxies: ["香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
 
-    - name: 漂漂专用
-      type: url-test
-      include-all: true
-      tolerance: 15
-      interval: 150
-      expected-status: 304/200-209 # 当健康检查返回状态码与期望值不符时，认为节点不可用
-      url: https://img.pp.weimipopo.com
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/%E6%BC%82%E6%BC%82%E5%9B%BE%E6%A0%87.jpg
-
 guize: &guize
    type: http
    format: text
@@ -316,17 +301,8 @@ rules:
     - AND,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,bilibili)),REJECT
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - RULE-SET,Other,杂七杂八
-    - DOMAIN,m.pp.weimipopo.com,漂漂切换
-    - DOMAIN,api.pp.weimipopo.com,漂漂切换
-    - DOMAIN,img.pp.weimipopo.com,漂漂切换
-    - PROCESS-NAME,dnplayer.exe,外网选择
-    - DOMAIN-SUFFIX,hjd2048.com,漏网之鱼
-    - DOMAIN-SUFFIX,mypikpak.com,漏网之鱼
-    - DOMAIN-SUFFIX,access.pikpakdrive.com,漏网之鱼
     - DOMAIN-KEYWORD,bigo,BIGO切换
     - DOMAIN-KEYWORD,cubetecn,BIGO切换
-    - PROCESS-NAME,parfait_crash_handler.exe,外网选择
-    - PROCESS-NAME,CapCut.exe,外网选择
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
