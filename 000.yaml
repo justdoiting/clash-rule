@@ -17,7 +17,9 @@ geox-url:
 dns:
   enable: true
   ipv6: true
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ["rule-set:CNdirect"]
   listen: :1053
   prefer-h3: true
   nameserver: [223.5.5.5, 119.29.29.29, 1.2.4.8, '[2400:3200::1]', '[2402:4e00::]']
