@@ -31,7 +31,7 @@ dns:
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
 tun:
-  enable: false
+  enable: true
   stack: mixed
   dns-hijack:
     - "udp://any:53"
