@@ -33,12 +33,12 @@ sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: tru
 tun:
   enable: true
   stack: mixed
-  dns-hijack:
-    - "udp://any:53"
-    - "tcp://any:53"
-  auto-route: true
-  auto-detect-interface: true
-  disable-icmp-forwarding: true
+  device: utun
+  endpoint-independent-nat: true
+  auto-route: false
+  auto-detect-interface: false
+  auto-redirect: false
+  strict-route: false
 
 profile:
   store-selected: true
