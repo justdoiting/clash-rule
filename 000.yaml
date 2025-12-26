@@ -20,12 +20,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-range6: fdfe:dcba:9876::1/64
-  fake-ip-filter: ['+.lan', '+.local', '+.cmpassport.com', 'id6.me', 'open.e.189.cn', 'mdn.open.wo.cn', 'opencloud.wostore.cn', 'auth.wosms.cn', '+.10099.com.cn', '+.msftconnecttest.com', '+.msftncsi.com', 'lancache.steamcontent.com']
+  fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNdirect']
   listen: :1053
   prefer-h3: true
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
   nameserver: [223.5.5.5, 119.29.29.29, 1.2.4.8, '[2400:3200::1]', '[2402:4e00::]']
-  fallback: [https://1.1.1.1/dns-query, https://unfiltered.adguard-dns.com/dns-query, tls://dns.google:853]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
