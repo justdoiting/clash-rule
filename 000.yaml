@@ -49,13 +49,13 @@ proxy-providers:
 
 atm: &atm  
   interval: 300
-  url: https://i.ytimg.com/generate_204
+  url: http://latency-test.skk.moe/endpoint
   timeout: 5000
   max-failed-times: 3
   
 zhixuan: &zhixuan 
    type: url-test
-   url: https://i.ytimg.com/generate_204
+   url: http://latency-test.skk.moe/endpoint
    include-all: true
    tolerance: 50
    interval: 300
