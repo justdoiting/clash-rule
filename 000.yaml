@@ -1,10 +1,10 @@
 mixed-port: 7890
 tcp-concurrent: true
 allow-lan: true
-ipv6: true
+ipv6: false
 log-level: info
 unified-delay: true
-find-process-mode: strict
+find-process-mode: always
 
 geodata-mode: true
 geox-url:
