@@ -4,7 +4,7 @@ allow-lan: true
 ipv6: true
 log-level: info
 unified-delay: true
-find-process-mode: strict
+find-process-mode: always
 
 geodata-mode: true
 geox-url:
