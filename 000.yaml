@@ -20,7 +20,9 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNdirect']
   listen: 0.0.0.0:1053
+  respect-rules: true
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
+  proxy-server-nameserver: [114.114.114.114]
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
