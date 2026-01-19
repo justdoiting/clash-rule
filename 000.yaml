@@ -1,10 +1,10 @@
 mixed-port: 7890
 tcp-concurrent: true
 allow-lan: true
-ipv6: false
+ipv6: true
 log-level: info
 unified-delay: true
-find-process-mode: always
+find-process-mode: strict
 
 geodata-mode: true
 geox-url:
@@ -20,9 +20,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNdirect']
   listen: 0.0.0.0:1053
-  respect-rules: true
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
-  proxy-server-nameserver: [114.114.114.114]
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -58,8 +56,9 @@ proxy-providers:
     path: ./free.yaml
 
 atm: &atm  
-  interval: 300
+  interval: 600
   url: http://latency-test.skk.moe/endpoint
+  lazy: true
   timeout: 5000
   max-failed-times: 3
   
@@ -68,7 +67,8 @@ zhixuan: &zhixuan
    url: http://latency-test.skk.moe/endpoint
    include-all: true
    tolerance: 50
-   interval: 300
+   interval: 600
+   lazy: true
 
 proxy-groups:
 
