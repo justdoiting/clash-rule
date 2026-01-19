@@ -1,10 +1,10 @@
 mixed-port: 7890
 tcp-concurrent: true
 allow-lan: true
-ipv6: false
+ipv6: true
 log-level: info
 unified-delay: true
-find-process-mode: always
+find-process-mode: strict
 
 geodata-mode: true
 geox-url:
@@ -20,9 +20,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
   listen: 0.0.0.0:1053
-  respect-rules: true
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
-  proxy-server-nameserver: [114.114.114.114]
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -53,8 +51,9 @@ profile:
   store-fake-ip: true
 
 atm: &atm  
-  interval: 300
+  interval: 600
   url: http://latency-test.skk.moe/endpoint
+  lazy: true
   max-failed-times: 3
   
 zhixuan: &zhixuan 
@@ -62,7 +61,8 @@ zhixuan: &zhixuan
    url: http://latency-test.skk.moe/endpoint
    include-all: true
    tolerance: 50
-   interval: 300
+   interval: 600
+   lazy: true
 
 proxy-groups:
 
@@ -197,7 +197,7 @@ proxy-groups:
     - name: 所有智选
       type: fallback
       url: http://latency-test.skk.moe/endpoint
-      interval: 111
+      interval: 666
       timeout: 1000
       lazy: true
       proxies: ["香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
