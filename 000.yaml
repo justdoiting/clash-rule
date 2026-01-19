@@ -32,9 +32,9 @@ dns:
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
     'rule-set:Proxy':
-      - https://1.1.1.1/dns-query#所有智选
-      - https://dns10.quad9.net/dns-query#所有智选
-      - https://dns.google/dns-query#所有智选
+      - https://dns.mullvad.net/dns-query#ecs=1.1.1.1/24&ecs-override=true
+      - https://dns10.quad9.net/dns-query#ecs=1.1.1.1/24&ecs-override=true
+      - https://dns.google/dns-query#ecs=1.1.1.1/24&ecs-override=true
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
