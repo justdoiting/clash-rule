@@ -195,11 +195,12 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UN.png
 
     - name: 所有智选
-      type: fallback
-      url: http://latency-test.skk.moe/endpoint
-      interval: 666
+      type: load-balance
+      url: https://www.google.com
+      interval: 888
       timeout: 1000
       lazy: true
+      strategy: sticky-sessions
       proxies: ["香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
 
