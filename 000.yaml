@@ -57,14 +57,14 @@ proxy-providers:
 
 atm: &atm  
   interval: 600
-  url: http://latency-test.skk.moe/endpoint
+  url: http://www.v2ex.com/generate_204
   lazy: true
   timeout: 5000
   max-failed-times: 3
   
 zhixuan: &zhixuan 
    type: url-test
-   url: http://latency-test.skk.moe/endpoint
+   url: http://www.v2ex.com/generate_204
    include-all: true
    tolerance: 50
    interval: 600
