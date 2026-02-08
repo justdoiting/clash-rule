@@ -21,14 +21,14 @@ dns:
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
   listen: 0.0.0.0:1053
   default-nameserver:
-    - 223.5.5.5
     - 119.29.29.29
+    - 223.5.5.5
     - 180.76.76.76
   nameserver:
-    - 1.1.1.1
     - https://dns.mullvad.net/dns-query
-    - tls://8.8.8
+    - tls://8.8.8.8
     - https://dns10.quad9.net/dns-query
+    - 1.1.1.1
   nameserver-policy:
     "rule-set:CNSITE":
       - https://doh.360.cn/dns-query
