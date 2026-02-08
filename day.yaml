@@ -20,19 +20,20 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
   listen: 0.0.0.0:1053
-  default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 180.76.76.76
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-    - https://doh.360.cn/dns-query
+    - 1.1.1.1
+    - https://dns.mullvad.net/dns-query
+    - tls://8.8.8
+    - https://dns10.quad9.net/dns-query
   nameserver-policy:
-    'rule-set:CNSITE':
+    "rule-set:CNSITE":
+      - https://doh.360.cn/dns-query
       - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
-    'rule-set:Proxy':
-      - https://dns.mullvad.net/dns-query
-      - https://dns10.quad9.net/dns-query
-      - https://dns.google/dns-query
+      - 114.114.114.114
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -296,9 +297,9 @@ rules:
     - RULE-SET,TikTok,TikTok
     - RULE-SET,Microsoft,微软服务&GitHub
     - RULE-SET,Github,微软服务&GitHub
+    - RULE-SET,Lan,DIRECT,no-resolve
     - RULE-SET,Proxy,外网选择
-    - RULE-SET,Lan,DIRECT
+    - RULE-SET,CNSITE,DIRECT
     - RULE-SET,CNASN,DIRECT
     - RULE-SET,CNIP,DIRECT
-    - RULE-SET,CNSITE,DIRECT
     - MATCH,漏网之鱼
