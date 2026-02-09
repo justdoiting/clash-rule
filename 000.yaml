@@ -22,12 +22,13 @@ dns:
   listen: 0.0.0.0:1053
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
   nameserver:
-    - https://dns.mullvad.net/dns-query
+    - https://cloudflare-dns.com/dns-query
     - https://dns10.quad9.net/dns-query
     - https://dns.google/dns-query
+    - 114.114.114.114
     
   nameserver-policy:
-    'rule-set:CNdirect':
+    'rule-set:CNdirect,CNPro':
       - https://doh.pub/dns-query
       - https://doh.360.cn/dns-query
       - https://dns.alidns.com/dns-query
@@ -299,6 +300,14 @@ rule-providers:
       url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
       interval: 86400
       path: ./rules/CNip.mrs
+
+    CNPro:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
+      interval: 86400
+      path: ./rules/CNPro.mrs
 
     Proxy:
       type: http
