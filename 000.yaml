@@ -22,16 +22,13 @@ dns:
   listen: 0.0.0.0:1053
   default-nameserver: [223.5.5.5, 119.29.29.29, 180.76.76.76]
   nameserver:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns10.quad9.net/dns-query
-    - https://dns.google/dns-query
-    - 114.114.114.114
-    
+    - 114.114.114.114 
+    - tls://8.8.8.8
+    - 1.1.1.1
+    - 180.184.1.1
   nameserver-policy:
-    'rule-set:CNdirect,CNPro':
-      - https://doh.pub/dns-query
-      - https://doh.360.cn/dns-query
-      - https://dns.alidns.com/dns-query
+    'rule-set:CNPro': [114.114.114.114, 52.80.66.66, 101.226.4.6]
+    'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -333,7 +330,8 @@ rules:
     - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,Lan,DIRECT,no-resolve
     - RULE-SET,Proxy,外网选择
-    - RULE-SET,CNdirect,DIRECT   
+    - RULE-SET,CNdirect,DIRECT
+    - RULE-SET,CNPro,DIRECT
     - RULE-SET,CNASN,DIRECT,no-resolve
     - RULE-SET,CNip,DIRECT,no-resolve
     - MATCH,漏网之鱼
