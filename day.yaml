@@ -21,19 +21,17 @@ dns:
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
   listen: 0.0.0.0:1053
   default-nameserver:
-    - 119.29.29.29
     - 223.5.5.5
+    - 119.29.29.29
     - 180.76.76.76
   nameserver:
-    - https://cloudflare-dns.com/dns-query
+    - 114.114.114.114 
     - tls://8.8.8.8
-    - https://dns10.quad9.net/dns-query
-    - 114.114.114.114
+    - 1.1.1.1
+    - 180.184.1.1
   nameserver-policy:
-    "rule-set:CNSITE,CNPro":
-      - https://doh.360.cn/dns-query
-      - https://doh.pub/dns-query
-      - 114.114.114.114
+    'rule-set:CNPro': [114.114.114.114, 52.80.66.66, 101.226.4.6, 1.2.4.8]
+    'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query", "https://unfiltered.adguard-dns.com/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -50,12 +48,6 @@ tun:
 profile:
   store-selected: true
   store-fake-ip: true
-
-atm: &atm  
-  interval: 600
-  url: http://www.v2ex.com/generate_204
-  lazy: true
-  max-failed-times: 3
   
 zhixuan: &zhixuan 
    type: url-test
@@ -68,13 +60,11 @@ zhixuan: &zhixuan
 proxy-groups:
 
     - name: 手动选择
-      <<: *atm
       type: select
       include-all: true
       icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/main/src-tauri/icons/icon.png
     
     - name: 手动选择2
-      <<: *atm
       type: select
       include-all: true
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Clubhouse.png
@@ -86,50 +76,42 @@ proxy-groups:
       icon: https://img.icons8.com/?size=144&id=9Mz1BhM4ui54&format=png&color=000000
 
     - name: 外网选择
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
     - name: YouTube
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 
     - name: 电报消息
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
     - name: 推特消息
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
 
 
     - name: 哔哩哔哩
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
     - name: 微软服务&GitHub
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
 
     - name: AI平台
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
 
     - name: TikTok
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
@@ -308,6 +290,7 @@ rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - RULE-SET,Proxy,外网选择
     - RULE-SET,CNSITE,DIRECT
-    - RULE-SET,CNASN,DIRECT
+    - RULE-SET,CNPro,DIRECT
     - RULE-SET,CNIP,DIRECT
+    - RULE-SET,CNASN,DIRECT
     - MATCH,漏网之鱼
