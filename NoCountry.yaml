@@ -137,6 +137,17 @@ proxy-groups:
       proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
 
+    - name: 低倍率节点
+      <<: *zhixuan
+      filter: (?i)(?:^|[^0-9])(?:[0o]\.[0-9]+|[0o]\.[₀₁₂₃₄₅₆₇₈₉]+|[0o][xXₓ]|x[0o](?:\.[0-9]+)?|X[0o](?:\.[0-9]+)?|x[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|X[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|⁰[˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+|ˣ[⁰˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?!\d)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Dark/x0.png
+
+    - name: 链式代理
+      type: select
+      dialer-proxy: 前置节点
+      proxies: ["手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "其他地区智选"]
+      icon: https://raw.githubusercontent.com/666OS/YYDS/main/mihomo/image/mihomo.png
+
     - name: 前置节点
       type: select
       proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "其他地区智选"]
@@ -176,17 +187,6 @@ proxy-groups:
       <<: *zhixuan
       exclude-filter: (?i)(🇨🇳|CN|China?|中(国)?)\b|🇭🇰|香港|HK|Hong|🇹🇼|台湾|TW|Taiwan|🇲🇴|澳门|MO|Macau|🇷🇺|俄罗斯|RU|Russia|🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|Korea|🇸🇬|新加坡|SG|Singapore|🇲🇾|马来西亚|MY|🇹🇭|泰国|TH|🇻🇳|越南|VN|🇵🇭|菲律宾|PH|🇮🇳|印度|IN|🇬🇧|英国|UK|England|🇩🇪|德国|DE|Germany|🇫🇷|法国|FR|France|🇳🇱|荷兰|NL|Netherlands|🇨🇭|瑞士|CH|Switzerland|🇮🇹|意大利|IT|Italy|🇪🇸|西班牙|ES|🇸🇪|瑞典|SE|🇵🇱|波兰|PL|🇺🇸|美国|US|USA|America|🇨🇦|加拿大|CA|Canada|🇲🇽|墨西哥|MX|🇦🇺|澳大利亚|澳洲|AU|Australia|🇳🇿|新西兰|NZ|🇧🇷|巴西|BR|Brazil|🇦🇷|阿根廷|AR|🇨🇱|智利|CL|🇿🇦|南非|ZA|🇪🇬|埃及|EG|🇳🇬|尼日利亚|NG
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
-      
-    - name: 低倍率节点
-      <<: *zhixuan
-      filter: (?i)(?:^|[^0-9])(?:[0o]\.[0-9]+|[0o]\.[₀₁₂₃₄₅₆₇₈₉]+|[0o][xXₓ]|x[0o](?:\.[0-9]+)?|X[0o](?:\.[0-9]+)?|x[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|X[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|⁰[˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+|ˣ[⁰˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?!\d)
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Dark/x0.png
-
-    - name: 链式代理
-      type: select
-      dialer-proxy: 前置节点
-      proxies: ["手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "其他地区智选"]
-      icon: https://raw.githubusercontent.com/666OS/YYDS/main/mihomo/image/mihomo.png
 
     - name: 所有智选
       type: fallback
