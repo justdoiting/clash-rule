@@ -70,7 +70,6 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Clubhouse.png
 
     - name: 漏网之鱼
-      <<: *atm
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://img.icons8.com/?size=144&id=9Mz1BhM4ui54&format=png&color=000000
