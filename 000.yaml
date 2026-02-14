@@ -314,6 +314,6 @@ rules:
     - RULE-SET,Proxy,外网选择
     - RULE-SET,CNdirect,DIRECT
     - RULE-SET,CNPro,DIRECT
-    - RULE-SET,CNASN,DIRECT,no-resolve
-    - RULE-SET,CNip,DIRECT,no-resolve
+    - RULE-SET,CNip,DIRECT
+    - RULE-SET,CNASN,DIRECT
     - MATCH,漏网之鱼
