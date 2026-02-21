@@ -62,17 +62,17 @@ proxy-groups:
     - name: 手动选择
       type: select
       include-all: true
-      icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/main/src-tauri/icons/icon.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png
     
     - name: 手动选择2
       type: select
       include-all: true
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Clubhouse.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
 
     - name: 漏网之鱼
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
-      icon: https://img.icons8.com/?size=144&id=9Mz1BhM4ui54&format=png&color=000000
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
     - name: 外网选择
       type: select
