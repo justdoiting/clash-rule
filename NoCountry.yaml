@@ -186,7 +186,7 @@ rule-providers:
     BiliBili:
       <<: *guize
       url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
-      path: /rules/BiliBili.yaml
+      path: ./rules/BiliBili.yaml
 
     CNASN:
       <<: *guize
