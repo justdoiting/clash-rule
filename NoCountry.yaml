@@ -84,21 +84,6 @@ proxy-groups:
       proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
-    - name: 杂七杂八
-      type: select
-      proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png
-
-    - name: BIGO切换
-      type: select
-      proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
-
-    - name: ST下载
-      type: select
-      proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
-      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/stripchat-seeklogo.png
-
     - name: YouTube
       type: select
       proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
