@@ -1,0 +1,241 @@
+mixed-port: 7890
+tcp-concurrent: false
+allow-lan: true
+ipv6: true
+log-level: info
+unified-delay: true
+find-process-mode: strict
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
+  listen: 0.0.0.0:1053
+  default-nameserver: [119.29.29.29, 223.5.5.5]
+  nameserver: [119.29.29.29, tls://1.1.1.1, 1.2.4.8]
+  nameserver-policy:
+    'rule-set:CNPro': [223.5.5.5, 52.80.66.66, 101.226.4.6]
+    'rule-set:CNSITE': [52.80.66.66, 101.226.4.6, 223.5.5.5]
+    'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query", "https://unfiltered.adguard-dns.com/dns-query"]
+
+sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] } } }
+
+tun:
+  enable: true
+  stack: mixed
+  device: utun
+  endpoint-independent-nat: true
+  auto-route: false
+  auto-detect-interface: false
+  auto-redirect: false
+  strict-route: false
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+ 
+zhixuan: &zhixuan 
+   type: fallback
+   url: http://www.v2ex.com/generate_204
+   include-all: true
+   interval: 600
+   lazy: true
+
+proxy-groups:
+
+    - name: 手动选择
+      type: select
+      include-all: true
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png
+    
+    - name: 手动选择II
+      type: select
+      include-all: true
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+
+    - name: 外网选择
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png 
+    
+    - name: 电报消息
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+
+    - name: BIGO切换
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "DIRECT"]
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
+ 
+    - name: 漏网之鱼
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "DIRECT"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+
+    - name: YouTube
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
+    - name: 推特消息
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+
+    - name: 哔哩哔哩
+      type: select
+      proxies: ["DIRECT", "随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
+
+    - name: AI平台
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+
+    - name: TikTok
+      type: select
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
+
+    - name: 香港节点
+      <<: *zhixuan
+      filter: (?i)🇭🇰|香港|(\b(HK|Hong)\b)
+      icon: https://flagcdn.com/hk.svg
+
+    - name: 台湾节点
+      <<: *zhixuan
+      filter: (?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)
+      icon: https://flagcdn.com/tw.svg
+
+    - name: 日本节点
+      <<: *zhixuan
+      filter: (?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)
+      icon: https://flagcdn.com/jp.svg
+
+    - name: 其他地区
+      <<: *zhixuan
+      exclude-filter: (?i)🇭🇰|香港|(\b(HK|Hong)\b)|(?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)|(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
+      
+    - name: 低倍率节点
+      <<: *zhixuan
+      filter: (?i)(?:^|[^0-9])(?:[0o]\.[0-9]+|[0o]\.[₀₁₂₃₄₅₆₇₈₉]+|[0o][xXₓ]|x[0o](?:\.[0-9]+)?|X[0o](?:\.[0-9]+)?|x[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|X[₀⁰](?:\.[₀₁₂₃₄₅₆₇₈₉]+)?|⁰[˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+|ˣ[⁰˙\.]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?!\d)
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Dark/x0.png
+
+    - name: 随机节点
+      type: fallback
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1500
+      lazy: true
+      proxies: ["香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Loop.png
+
+guize: &guize
+   type: http
+   format: text
+   interval: 86400
+   behavior: classical
+
+rule-providers:
+
+    ZL:
+      type: file
+      format: text
+      behavior: classical
+      path: ./rules/ZL.list
+
+    BiliBili:
+      <<: *guize
+      url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
+      path: ./rules/BiliBili.yaml
+
+    CNASN:
+      <<: *guize
+      url: https://raw.githubusercontent.com/skyrocketingHong/ASN-China/refs/heads/main/ASN.China.list
+      path: ./rules/CNASN.yaml
+
+    YouTube:
+      <<: *guize
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/YouTube.list
+      path: ./rules/YouTube.yaml
+
+    TikTok:
+      <<: *guize
+      url: https://whatshub.top/rule/TikTok.list
+      path: ./rules/TikTok.yaml
+
+    Telegram:
+      <<: *guize
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Telegram.list
+      path: ./rules/Telegram.yaml
+
+    Twitter:
+      <<: *guize
+      url: https://whatshub.top/rule/Twitter.list
+      path: ./rules/Twitter.yaml
+
+    AI:
+      <<: *guize
+      url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list
+      path: ./rules/AI.yaml
+
+    Lan:
+      <<: *guize
+      url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
+      path: ./rules/Lan.yaml
+
+    CNIP:
+      type: http
+      format: mrs
+      behavior: ipcidr
+      url: https://github.com/Kwisma/ASN-List/raw/refs/heads/main/country/CN/CN_IP.mrs
+      interval: 86400
+      path: ./rules/IPCN.mrs
+
+    CNSITE:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://static-file-global.353355.xyz/rules/cn-additional-list.mrs
+      interval: 86400
+      path: ./rules/CNSITE.mrs
+      
+    CNPro:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Direct_Mihomo.mrs
+      interval: 86400
+      path: ./rules/CNPro.mrs
+
+    Proxy:
+      type: http
+      format: mrs
+      behavior: domain
+      url: https://github.com/Ryucmd/mihomo-rule/raw/refs/heads/main/Proxy_Mihomo.mrs
+      interval: 86400
+      path: ./rules/Proxy.mrs
+
+rules:
+    - RULE-SET,ZL,DIRECT
+    - RULE-SET,Lan,DIRECT,no-resolve
+    - DOMAIN-KEYWORD,sooplive,DIRECT
+    - DOMAIN-KEYWORD,cubetvgame,BIGO切换
+    - DOMAIN-KEYWORD,bigo,BIGO切换
+    - DOMAIN-KEYWORD,cubetecn,BIGO切换
+    - RULE-SET,AI,AI平台
+    - RULE-SET,BiliBili,哔哩哔哩
+    - RULE-SET,YouTube,YouTube
+    - RULE-SET,Telegram,电报消息
+    - RULE-SET,Twitter,推特消息
+    - RULE-SET,TikTok,TikTok
+    - RULE-SET,Proxy,外网选择
+    - RULE-SET,CNSITE,DIRECT
+    - RULE-SET,CNPro,DIRECT
+    - RULE-SET,CNIP,DIRECT
+    - RULE-SET,CNASN,DIRECT   
+    - MATCH,漏网之鱼
