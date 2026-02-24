@@ -204,9 +204,7 @@ rule-providers:
       path: ./rules/TikTok.yaml
 
     Telegram:
-      type: file
-      format: text
-      behavior: classical
+      <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Telegram.list
       path: ./rules/Telegram.yaml
 
