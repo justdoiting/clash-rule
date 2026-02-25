@@ -67,7 +67,7 @@ proxy-groups:
 
     - name: BIGO切换
       type: select
-      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "DIRECT"]
+      proxies: ["随机节点", "风控尝试", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
  
     - name: 漏网之鱼
@@ -97,7 +97,7 @@ proxy-groups:
 
     - name: TikTok
       type: select
-      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "风控尝试"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
 
     - name: 香港节点
@@ -133,6 +133,17 @@ proxy-groups:
       lazy: true
       proxies: ["香港节点", "台湾节点", "日本节点", "其他地区"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Loop.png
+
+    - name: 风控尝试
+      type: load-balance
+      include-all: true
+      url: https://www.tiktok.com
+      interval: 888
+      timeout: 1500
+      lazy: true
+      strategy: consistent-hashing
+      expected-status: 200/302
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
 
 guize: &guize
    type: http
