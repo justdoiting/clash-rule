@@ -45,13 +45,13 @@ proxy-providers:
       enable: true
       interval: 600
       timeout: 3000
-      url: http://www.v2ex.com/generate_204
+      url: https://www.google.com/generate_204
       lazy: true
     path: ./sub.yaml
  
 zhixuan: &zhixuan 
    type: url-test
-   url: http://www.v2ex.com/generate_204
+   url: https://www.google.com/generate_204
    include-all: true
    interval: 600
    tolerance: 50
@@ -100,11 +100,6 @@ proxy-groups:
       proxies: ["DIRECT", "所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
-    - name: 微软服务&GitHub
-      type: select
-      proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选", "DIRECT"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-
     - name: AI平台
       type: select
       proxies: ["所有智选", "链式代理", "手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "低倍率节点", "其他地区智选"]
@@ -123,7 +118,7 @@ proxy-groups:
     - name: 链式代理
       type: select
       dialer-proxy: 前置节点
-      proxies: ["手动选择", "手动选择II", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "其他地区智选"]
+      proxies: ["手动选择", "亚洲智选", "北美智选", "欧洲智选", "非洲智选", "大洋洲智选", "南美智选", "其他地区智选"]
       icon: https://raw.githubusercontent.com/666OS/YYDS/main/mihomo/image/mihomo.png
 
     - name: 前置节点
@@ -168,7 +163,7 @@ proxy-groups:
 
     - name: 所有智选
       type: fallback
-      url: http://www.v2ex.com/generate_204
+      url: https://www.google.com/generate_204
       interval: 300
       timeout: 1500
       lazy: true
@@ -218,16 +213,6 @@ rule-providers:
       url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list
       path: ./rules/AI.yaml
 
-    Microsoft:
-      <<: *guize
-      url: https://whatshub.top/rule/Microsoft.list
-      path: ./rules/Microsoft.yaml
-
-    Github:
-      <<: *guize
-      url: https://whatshub.top/rule/GitHub.list
-      path: ./rules/Github.yaml
-
     Lan:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
@@ -273,8 +258,6 @@ rules:
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
-    - RULE-SET,Microsoft,微软服务&GitHub
-    - RULE-SET,Github,微软服务&GitHub
     - RULE-SET,Lan,DIRECT,no-resolve    
     - RULE-SET,Proxy,外网选择
     - RULE-SET,CNSITE,DIRECT
