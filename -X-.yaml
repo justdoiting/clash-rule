@@ -38,7 +38,7 @@ profile:
  
 zhixuan: &zhixuan 
    type: fallback
-   url: http://www.v2ex.com/generate_204
+   url: https://www.google.com/generate_204
    include-all: true
    interval: 600
    lazy: true
@@ -84,11 +84,6 @@ proxy-groups:
       type: select
       proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-
-    - name: 哔哩哔哩
-      type: select
-      proxies: ["DIRECT", "随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
-      icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
     - name: AI平台
       type: select
@@ -158,11 +153,6 @@ rule-providers:
       format: text
       behavior: classical
       path: ./rules/ZL.list
-
-    BiliBili:
-      <<: *guize
-      url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
-      path: ./rules/BiliBili.yaml
 
     CNASN:
       <<: *guize
@@ -239,7 +229,6 @@ rules:
     - DOMAIN-KEYWORD,bigo,BIGO切换
     - DOMAIN-KEYWORD,cubetecn,BIGO切换
     - RULE-SET,AI,AI平台
-    - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Twitter,推特消息
