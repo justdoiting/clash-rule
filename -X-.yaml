@@ -16,7 +16,7 @@ dns:
   default-nameserver: [119.29.29.29, 223.5.5.5]
   nameserver: [119.29.29.29, tls://1.1.1.1, 1.2.4.8]
   nameserver-policy:
-    'rule-set:CNPro': [223.5.5.5, 52.80.66.66, 101.226.4.6]
+    'rule-set:CNPro': [119.29.29.29, 52.80.66.66, 101.226.4.6]
     'rule-set:CNSITE': [52.80.66.66, 101.226.4.6, 223.5.5.5]
     'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query", "https://unfiltered.adguard-dns.com/dns-query"]
 
