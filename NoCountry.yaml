@@ -17,6 +17,7 @@ dns:
   nameserver: [119.29.29.29, tls://1.1.1.1, 1.2.4.8]
   nameserver-policy:
     'rule-set:CNPro': [52.80.66.66, 101.226.4.6, 223.5.5.5]
+    'rule-set:CNSITE': [119.29.29.29, 101.226.4.6, 52.80.66.66]
     'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query", "https://unfiltered.adguard-dns.com/dns-query"]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] } } }
