@@ -129,37 +129,37 @@ proxy-groups:
 
     - name: 亚洲智选
       <<: *zhixuan
-      filter: (?i)(🇨🇳|CN|China?|中(国)?)\b|\b(?:🇯🇵|JP|Japan?|日(本)?)\b|\b(?:🇰🇷|KR|Korea?|韩(国)?)\b|\b(?:🇮🇳|IN|India?|印(度)?)\b|\b(?:🇹🇭|TH|Thailand?|泰(国)?)\b|\b(?:🇻🇳|VN|Vietnam?|越(南)?)\b|\b(?:🇸🇬|SG|Singapore?|新(加坡)?)\b|\b(?:🇲🇾|MY|Malaysia?|马(来西亚)?)\b|\b(?:🇮🇩|ID|Indonesia?|印(尼)?)\b|\b(?:🇦🇪|AE|UAE?|阿(联酋)?)\b|\b(?:🇷🇺|RU|Russia?|俄(罗斯)?)\b|🇭🇰|香港|HK|Hong|🇹🇼|台湾|TW|Taiwan|🇲🇴|澳门|MO|Macau
+      filter: (?i)🇭🇰|香港|HK|Hong|🇹🇼|台湾|TW|Taiwan|🇲🇴|澳门|MO|Macau|🇷🇺|俄罗斯|RU|Russia|🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|Korea|🇸🇬|新加坡|SG|Singapore|🇮🇳|印度|IN|India|🇹🇭|泰国|TH|Thailand|🇻🇳|越南|VN|Vietnam|🇲🇾|马来西亚|MY|Malaysia|🇮🇩|印尼|ID|Indonesia|🇦🇪|阿联酋|AE|UAE
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Asia_Map.png
 
     - name: 欧洲智选
       <<: *zhixuan
-      filter: (?i)(🇬🇧|GB|UK|Britain|England|英(国)?)\b|\b(?:🇫🇷|FR|France?|法(国)?)\b|\b(?:🇩🇪|DE|Germany?|德(国)?)\b|\b(?:🇮🇹|IT|Italy?|意(大利)?)\b|\b(?:🇪🇸|ES|Spain?|西(班牙)?)\b|\b(?:🇳🇱|NL|Netherlands?|荷(兰)?)\b|\b(?:🇸🇪|SE|Sweden?|瑞(典)?)\b|\b(?:🇳🇴|NO|Norway?|挪(威)?)\b|\b(?:🇩🇰|DK|Denmark?|丹(麦)?)\b|\b(?:🇫🇮|FI|Finland?|芬(兰)?)\b|\b(?:🇵🇱|PL|Poland?|波(兰)?)\b|\b(?:🇷🇴|RO|Romania?|罗(马尼亚)?)\b
+      filter: (?i)🇬🇧|UK|England|Britain|英国|🇫🇷|FR|France|法国|🇩🇪|DE|Germany|德国|🇮🇹|IT|Italy|意大利|🇪🇸|ES|Spain|西班牙|🇳🇱|NL|Netherlands|荷兰|🇸🇪|SE|Sweden|瑞典|🇳🇴|NO|Norway|挪威|🇩🇰|DK|Denmark|丹麦|🇫🇮|FI|Finland|芬兰|🇵🇱|PL|Poland|波兰|🇷🇴|RO|Romania|罗马尼亚
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png
 
     - name: 北美智选
       <<: *zhixuan
-      filter: (?i)(🇺🇸|US|USA|Amer(ica)?|美(国)?)\b|\b(?:🇨🇦|CA|Canada?|加(拿大)?)\b|\b(?:🇲🇽|MX|Mexico?|墨(西哥)?)\b
+      filter: (?i)🇺🇸|US|USA|America|美国|🇨🇦|CA|Canada|加拿大|🇲🇽|MX|Mexico|墨西哥
       icon: https://img.icons8.com/?size=100&id=blF0iWKFQB5v&format=png&color=000000
 
     - name: 南美智选
       <<: *zhixuan
-      filter: (?i)(🇧🇷|BR|Brazil?|巴(西)?)\b|\b(?:🇦🇷|AR|Argentina?|阿(根廷)?)\b|\b(?:🇨🇴|CO|Colombia?|哥(伦比亚)?)\b|\b(?:🇵🇪|PE|Peru?|秘(鲁)?)\b|\b(?:🇻🇪|VE|Venezuela?|委(内瑞拉)?)\b|\b(?:🇨🇱|CL|Chile?|智(利)?)\b
+      filter: (?i)🇧🇷|BR|Brazil|巴西|🇦🇷|AR|Argentina|阿根廷|🇨🇴|CO|Colombia|哥伦比亚|🇵🇪|PE|Peru|秘鲁|🇻🇪|VE|Venezuela|委内瑞拉|🇨🇱|CL|Chile|智利
       icon: https://img.icons8.com/?size=100&id=VrLfcIbeASYP&format=png&color=000000
 
     - name: 非洲智选
       <<: *zhixuan
-      filter: (?i)(🇿🇦|ZA|South Africa?|南(非)?)\b|\b(?:🇳🇬|NG|Nigeria?|尼(日利亚)?)\b|\b(?:🇪🇬|EG|Egypt?|埃(及)?)\b|\b(?:🇰🇪|KE|Kenya?|肯(尼亚)?)\b|\b(?:🇲🇦|MA|Morocco?|摩(洛哥)?)\b
+      filter: (?i)🇿🇦|ZA|SouthAfrica|South Africa|南非|🇳🇬|NG|Nigeria|尼日利亚|🇪🇬|EG|Egypt|埃及|🇰🇪|KE|Kenya|肯尼亚|🇲🇦|MA|Morocco|摩洛哥
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Africa_Map.png
 
     - name: 大洋洲智选
       <<: *zhixuan
-      filter: (?i)(🇦🇺|AU|Australia?|澳(大利亚)?)\b|\b(?:🇳🇿|NZ|New Zealand?|新(西兰)?)\b|\b(?:🇫🇯|FJ|Fiji?|斐(济)?)\b
+      filter: (?i)🇦🇺|AU|Australia|澳大利亚|澳洲|🇳🇿|NZ|New Zealand|NewZealand|新西兰|🇫🇯|FJ|Fiji|斐济
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Oceania_Map.png
 
     - name: 其他地区智选
       <<: *zhixuan
-      exclude-filter: (?i)(🇨🇳|CN|China?|中(国)?)\b|🇭🇰|香港|HK|Hong|🇹🇼|台湾|TW|Taiwan|🇲🇴|澳门|MO|Macau|🇷🇺|俄罗斯|RU|Russia|🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|Korea|🇸🇬|新加坡|SG|Singapore|🇲🇾|马来西亚|MY|🇹🇭|泰国|TH|🇻🇳|越南|VN|🇵🇭|菲律宾|PH|🇮🇳|印度|IN|🇬🇧|英国|UK|England|🇩🇪|德国|DE|Germany|🇫🇷|法国|FR|France|🇳🇱|荷兰|NL|Netherlands|🇨🇭|瑞士|CH|Switzerland|🇮🇹|意大利|IT|Italy|🇪🇸|西班牙|ES|🇸🇪|瑞典|SE|🇵🇱|波兰|PL|🇺🇸|美国|US|USA|America|🇨🇦|加拿大|CA|Canada|🇲🇽|墨西哥|MX|🇦🇺|澳大利亚|澳洲|AU|Australia|🇳🇿|新西兰|NZ|🇧🇷|巴西|BR|Brazil|🇦🇷|阿根廷|AR|🇨🇱|智利|CL|🇿🇦|南非|ZA|🇪🇬|埃及|EG|🇳🇬|尼日利亚|NG
+      exclude-filter: (?i)🇬🇧|UK|England|Britain|英国|🇫🇷|FR|France|法国|🇩🇪|DE|Germany|德国|🇮🇹|IT|Italy|意大利|🇪🇸|ES|Spain|西班牙|🇳🇱|NL|Netherlands|荷兰|🇸🇪|SE|Sweden|瑞典|🇳🇴|NO|Norway|挪威|🇩🇰|DK|Denmark|丹麦|🇫🇮|FI|Finland|芬兰|🇵🇱|PL|Poland|波兰|🇷🇴|RO|Romania|罗马尼亚|(?i)🇦🇺|AU|Australia|澳大利亚|澳洲|🇳🇿|NZ|New Zealand|NewZealand|新西兰|🇫🇯|FJ|Fiji|斐济|(?i)🇿🇦|ZA|SouthAfrica|South Africa|南非|🇳🇬|NG|Nigeria|尼日利亚|🇪🇬|EG|Egypt|埃及|🇰🇪|KE|Kenya|肯尼亚|🇲🇦|MA|Morocco|摩洛哥|(?i)🇧🇷|BR|Brazil|巴西|🇦🇷|AR|Argentina|阿根廷|🇨🇴|CO|Colombia|哥伦比亚|🇵🇪|PE|Peru|秘鲁|🇻🇪|VE|Venezuela|委内瑞拉|🇨🇱|CL|Chile|智利|(?i)🇺🇸|US|USA|America|美国|🇨🇦|CA|Canada|加拿大|🇲🇽|MX|Mexico|墨西哥|(?i)🇭🇰|香港|HK|Hong|🇹🇼|台湾|TW|Taiwan|🇲🇴|澳门|MO|Macau|🇷🇺|俄罗斯|RU|Russia|🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|Korea|🇸🇬|新加坡|SG|Singapore|🇮🇳|印度|IN|India|🇹🇭|泰国|TH|Thailand|🇻🇳|越南|VN|Vietnam|🇲🇾|马来西亚|MY|Malaysia|🇮🇩|印尼|ID|Indonesia|🇦🇪|阿联酋|AE|UAE
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
 
     - name: 所有智选
