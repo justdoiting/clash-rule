@@ -18,16 +18,14 @@ dns:
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNdirect']
+  fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
   listen: 0.0.0.0:1053
-  default-nameserver: [223.5.5.5, 119.29.29.29]
-  nameserver:
-    - 119.29.29.29
-    - tls://8.8.8.8
-    - 1.1.1.1
+  default-nameserver: [119.29.29.29, 223.5.5.5]
+  nameserver: [119.29.29.29, tls://1.1.1.1, 1.2.4.8]
   nameserver-policy:
-    'rule-set:CNPro': [52.80.66.66, 101.226.4.6, 1.2.4.8]
-    'rule-set:Proxy': ["https://cloudflare-dns.com/dns-query", "https://dns.google/dns-query", "https://dns10.quad9.net/dns-query", "https://unfiltered.adguard-dns.com/dns-query"]
+    'rule-set:CNPro': [119.29.29.29, 52.80.66.66, 101.226.4.6]
+    'rule-set:CNSITE': [52.80.66.66, 101.226.4.6, 223.5.5.5]
+    'rule-set:Proxy': [1.1.1.1, 8.8.8.8, 9.9.9.9, 64.6.64.6]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] }, QUIC: { ports: [443, 8443] } } }
 
@@ -52,7 +50,7 @@ proxy-providers:
   
 zhixuan: &zhixuan 
    type: url-test
-   url: http://www.v2ex.com/generate_204
+   url: https://www.google.com/generate_204
    include-all: true
    tolerance: 50
    interval: 600
@@ -115,10 +113,10 @@ proxy-groups:
       proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
 
-    - name: 微软服务&GitHub
+    - name: SOOP选择
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+      icon: https://storage.moegirl.org.cn/moegirl/commons/0/08/SOOP_logo.svg
 
     - name: AI平台
       type: select
@@ -193,7 +191,7 @@ proxy-groups:
 
     - name: 所有智选
       type: fallback
-      url: http://www.v2ex.com/generate_204
+      url: https://www.google.com/generate_204
       interval: 300
       timeout: 1500
       lazy: true
@@ -248,28 +246,18 @@ rule-providers:
       url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list
       path: ./rules/AI.list
 
-    Microsoft:
-      <<: *guize
-      url: https://whatshub.top/rule/Microsoft.list
-      path: ./rules/Microsoft.list
-
-    Github:
-      <<: *guize
-      url: https://whatshub.top/rule/GitHub.list
-      path: ./rules/Github.list
-
     Lan:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/Lan.list
       path: ./rules/Lan.list
     
-    CNdirect:
+    CNSITE:
       type: http
       format: mrs
       behavior: domain
       url: https://static-file-global.353355.xyz/rules/cn-additional-list.mrs
       interval: 86400
-      path: ./rules/CNdirect.mrs
+      path: ./rules/CNSITE.mrs
 
     CNip:
       type: http
@@ -296,8 +284,10 @@ rule-providers:
       path: ./rules/Proxy.mrs
 
 rules:
+    - RULE-SET,Lan,DIRECT,no-resolve
     - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
     - DOMAIN-KEYWORD,doppiocdn,ST下载
+    - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
     - DOMAIN-KEYWORD,bigo,BIGO切换
     - DOMAIN-KEYWORD,cubetecn,BIGO切换
@@ -307,11 +297,8 @@ rules:
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
-    - RULE-SET,Microsoft,微软服务&GitHub
-    - RULE-SET,Github,微软服务&GitHub
-    - RULE-SET,Lan,DIRECT,no-resolve
     - RULE-SET,Proxy,外网选择
-    - RULE-SET,CNdirect,DIRECT
+    - RULE-SET,CNSITE,DIRECT
     - RULE-SET,CNPro,DIRECT
     - RULE-SET,CNip,DIRECT
     - RULE-SET,CNASN,DIRECT
