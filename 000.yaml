@@ -10,8 +10,8 @@ geodata-mode: true
 geox-url:
   geoip: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
   geosite: https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.dat
-  mmdb: https://github.com/mojolabs-id/GeoLite2-Database/releases/latest/download/GeoLite2-City.mmdb
-  asn: https://github.com/justdoiting/clash-rule/raw/refs/heads/main/ASN.mmdb
+  mmdb: https://raw.githubusercontent.com/alecthw/mmdb_china_ip_list/release/Country.mmdb
+  asn: https://github.com/mojolabs-id/GeoLite2-Database/releases/latest/download/GeoLite2-ASN.mmdb
 
 dns:
   enable: true
