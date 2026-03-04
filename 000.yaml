@@ -293,6 +293,7 @@ rules:
     - RULE-SET,Other,杂七杂八
     - DOMAIN-KEYWORD,bigo,BIGO切换
     - DOMAIN-KEYWORD,cubetecn,BIGO切换
+    - DOMAIN-KEYWORD,cubetvgame,BIGO切换
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
