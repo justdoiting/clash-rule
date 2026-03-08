@@ -254,13 +254,13 @@ rule-providers:
 
 rules:
     - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
+    - RULE-SET,Lan,DIRECT,no-resolve
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
-    - RULE-SET,Lan,DIRECT,no-resolve    
     - RULE-SET,Proxy,外网选择
     - RULE-SET,CNSITE,DIRECT
     - RULE-SET,CNPro,DIRECT
