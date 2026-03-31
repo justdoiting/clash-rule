@@ -65,9 +65,14 @@ proxy-groups:
       proxies: ["随机节点", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
-    - name: BIGO切换
+    - name: BIGO解析
       type: select
       proxies: ["随机节点", "风控尝试", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区", "DIRECT"]
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
+
+    - name: BIGO下载
+      type: select
+      proxies: ["DIRECT", "随机节点", "风控尝试", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
  
     - name: 漏网之鱼
@@ -225,9 +230,9 @@ rules:
     - RULE-SET,ZL,DIRECT
     - RULE-SET,Lan,DIRECT,no-resolve
     - DOMAIN-KEYWORD,sooplive,DIRECT
-    - DOMAIN-KEYWORD,cubetvgame,BIGO切换
-    - DOMAIN-KEYWORD,bigo,BIGO切换
-    - DOMAIN-KEYWORD,cubetecn,BIGO切换
+    - DOMAIN-KEYWORD,cubetvgame,BIGO下载
+    - DOMAIN-KEYWORD,bigo,BIGO解析
+    - DOMAIN-KEYWORD,cubetecn,BIGO下载
     - RULE-SET,AI,AI平台
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Telegram,电报消息
