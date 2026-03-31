@@ -74,9 +74,14 @@ proxy-groups:
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "链式代理", "DIRECT"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
-    - name: BIGO切换
+    - name: BIGO解析
       type: select
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
+      icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
+
+    - name: BIGO下载
+      type: select
+      proxies: ["DIRECT", "所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
 
     - name: SOOP选择
@@ -286,9 +291,9 @@ rules:
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
-    - DOMAIN-KEYWORD,bigo,BIGO切换
-    - DOMAIN-KEYWORD,cubetecn,BIGO切换
-    - DOMAIN-KEYWORD,cubetvgame,BIGO切换
+    - DOMAIN-KEYWORD,bigo,BIGO解析
+    - DOMAIN-KEYWORD,cubetecn,BIGO下载
+    - DOMAIN-KEYWORD,cubetvgame,BIGO下载
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
