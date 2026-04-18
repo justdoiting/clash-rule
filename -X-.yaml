@@ -234,7 +234,7 @@ rule-providers:
 rules:
     - RULE-SET,ZL,DIRECT
     - RULE-SET,Lan,DIRECT,no-resolve
-    - DOMAIN-KEYWORD,sooplive,DIRECT
+    - DOMAIN-KEYWORD,sooplive,SOOP选择
     - DOMAIN-KEYWORD,cubetvgame,BIGO下载
     - DOMAIN-KEYWORD,bigo,BIGO解析
     - DOMAIN-KEYWORD,cubetecn,BIGO下载
