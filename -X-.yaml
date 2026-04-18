@@ -18,7 +18,7 @@ dns:
   nameserver-policy:
     'rule-set:CNPro': [119.29.29.29, 180.184.2.2, 101.226.4.6]
     'rule-set:CNSITE': [52.80.66.66, 101.226.4.6, 223.5.5.5]
-    'rule-set:Proxy': [1.1.1.1, 8.8.8.8, 64.6.64.6]
+    'rule-set:Proxy': [1.1.1.1, 8.8.8.8, 64.6.64.6, 94.140.14.140]
 
 sniffer: { enable: true, sniff: { HTTP: { ports: [80], override-destination: true }, TLS: { ports: [443, 8443] } } }
 
@@ -74,6 +74,11 @@ proxy-groups:
       type: select
       proxies: ["DIRECT", "随机节点", "风控尝试", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/bigo%E5%9B%BE%E6%A0%87.png
+
+    - name: SOOP选择
+      type: select
+      proxies: ["DIRECT", "随机节点", "风控尝试", "手动选择", "手动选择II", "香港节点", "台湾节点", "日本节点", "其他地区"]
+      icon: https://storage.moegirl.org.cn/moegirl/commons/0/08/SOOP_logo.svg
  
     - name: 漏网之鱼
       type: select
