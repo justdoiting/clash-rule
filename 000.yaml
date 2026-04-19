@@ -288,6 +288,7 @@ rule-providers:
 rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
+    - DOMAIN,h.huajiao.com,所有智选
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
