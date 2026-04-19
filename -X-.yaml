@@ -234,6 +234,7 @@ rule-providers:
 rules:
     - RULE-SET,ZL,DIRECT
     - RULE-SET,Lan,DIRECT,no-resolve
+    - DOMAIN,h.huajiao.com,风控尝试
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - DOMAIN-KEYWORD,cubetvgame,BIGO下载
     - DOMAIN-KEYWORD,bigo,BIGO解析
