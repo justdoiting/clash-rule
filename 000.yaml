@@ -209,7 +209,7 @@ rule-providers:
 
     CNASN:
       <<: *guize
-      url: https://raw.githubusercontent.com/Kwisma/ASN-List/refs/heads/main/country/CN/CN_ASN.list
+      url: https://raw.githubusercontent.com/budaobu/rules/refs/heads/main/lists/cn_asn.list
       path: ./rules/CNASN.list
 
     YouTube:
