@@ -46,7 +46,7 @@ proxy-providers:
   
 zhixuan: &zhixuan 
    type: url-test
-   url: https://zh.stripchat.com/cdn-cgi/trace
+   url: https://zh.stripchat.com/cdn-cgi/trace_200
    expected-status: 200
    include-all: true
    tolerance: 50
@@ -183,7 +183,7 @@ proxy-groups:
     - name: 所有智选
       type: load-balance
       strategy: consistent-hashing
-      url: https://zh.stripchat.com/cdn-cgi/trace
+      url: https://zh.stripchat.com/cdn-cgi/trace_200
       expected-status: 200
       interval: 300
       timeout: 1500
