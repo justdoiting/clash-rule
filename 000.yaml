@@ -46,8 +46,7 @@ proxy-providers:
   
 zhixuan: &zhixuan 
    type: url-test
-   url: https://zh.stripchat.com/cdn-cgi/trace_200
-   expected-status: 200
+   url: https://www.google.com/generate_204
    include-all: true
    tolerance: 50
    interval: 600
