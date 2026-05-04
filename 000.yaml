@@ -46,7 +46,8 @@ proxy-providers:
   
 zhixuan: &zhixuan 
    type: url-test
-   url: https://www.google.com/generate_204
+   url: https://zh.stripchat.com/cdn-cgi/trace
+   expected-status: 200
    include-all: true
    tolerance: 50
    interval: 600
@@ -182,7 +183,8 @@ proxy-groups:
     - name: 所有智选
       type: load-balance
       strategy: consistent-hashing
-      url: https://www.google.com/generate_204
+      url: https://zh.stripchat.com/cdn-cgi/trace
+      expected-status: 200
       interval: 300
       timeout: 1500
       lazy: true
@@ -278,6 +280,7 @@ rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
     - DOMAIN,h.huajiao.com,所有智选
+    - DOMAIN-KEYWORD,stripchat,ST下载
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
