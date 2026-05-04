@@ -147,7 +147,7 @@ proxy-groups:
       timeout: 1500
       lazy: true
       strategy: consistent-hashing
-      expected-status: 200/302
+      expected-status: 200
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
 
 guize: &guize
