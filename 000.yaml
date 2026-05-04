@@ -91,6 +91,11 @@ proxy-groups:
 
     - name: ST下载
       type: select
+      url: https://zh.stripchat.com/cdn-cgi/trace_200
+      expected-status: 200
+      interval: 300
+      timeout: 1500
+      lazy: true
       proxies: ["所有智选", "手动选择", "手动选择2", "香港智选", "美国智选", "新加坡智选", "日本智选", "台湾智选", "英国智选", "俄罗斯智选", "韩国智选", "法国智选", "其他地区智选", "DIRECT"]
       icon: https://raw.githubusercontent.com/justdoiting/clash-rule/refs/heads/main/stripchat-seeklogo.png
    
