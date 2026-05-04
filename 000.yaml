@@ -91,7 +91,7 @@ proxy-groups:
 
     - name: ST下载
       type: select
-      url: https://zh.stripchat.com/cdn-cgi/trace_200
+      url: https://zh.stripchat.com/cdn-cgi/trace
       expected-status: 200
       interval: 300
       timeout: 1500
@@ -187,7 +187,7 @@ proxy-groups:
     - name: 所有智选
       type: load-balance
       strategy: consistent-hashing
-      url: https://zh.stripchat.com/cdn-cgi/trace_200
+      url: https://zh.stripchat.com/cdn-cgi/trace
       expected-status: 200
       interval: 300
       timeout: 1500
