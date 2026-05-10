@@ -16,6 +16,7 @@ geox-url:
 dns:
   enable: true
   ipv6: false
+  prefer-h3: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
