@@ -9,6 +9,7 @@ find-process-mode: strict
 dns:
   enable: true
   ipv6: false
+  prefer-h3: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['+.lan', '+.local', 'rule-set:CNSITE']
@@ -142,11 +143,11 @@ proxy-groups:
     - name: 风控尝试
       type: load-balance
       include-all: true
-      url: https://www.tiktok.com
-      interval: 888
+      url: https://www.bigo.tv
+      interval: 333
       timeout: 1500
       lazy: true
-      strategy: consistent-hashing
+      strategy: round-robin
       expected-status: 200
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
 
