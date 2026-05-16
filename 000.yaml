@@ -187,7 +187,7 @@ proxy-groups:
 
     - name: 所有智选
       type: load-balance
-      strategy: consistent-hashing
+      strategy: round-robin
       url: https://zh.stripchat.com/cdn-cgi/trace
       expected-status: 200
       interval: 300
