@@ -153,7 +153,7 @@ proxy-groups:
 
     - name: 所有智选
       type: load-balance
-      strategy: consistent-hashing
+      strategy: round-robin
       url: https://www.google.com/generate_204
       interval: 300
       timeout: 1500
