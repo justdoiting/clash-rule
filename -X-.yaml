@@ -44,6 +44,12 @@ zhixuan: &zhixuan
    interval: 600
    lazy: true
 
+proxy-providers:
+
+  自建节点:
+    type: file
+    path: ./jiedian.yaml
+
 proxy-groups:
 
     - name: 手动选择
