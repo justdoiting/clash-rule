@@ -1,12 +1,20 @@
 // ==UserScript==
 // @name         day.yaml - threshold 地区过滤
-// @description  节点数量小于 threshold 时不显示该地区分组
+// @description  支持 threshold 参数，节点数量小于该值时不显示分组
 // ==/UserScript==
 
-function main(config, args) {
-    const threshold = parseInt(args.threshold) || 0;   // 默认 0（全部显示）
+function main(config) {
+    // 兼容不同调用方式（重要修复）
+    let args = {};
+    if (typeof $arguments !== 'undefined') {
+        args = $arguments;
+    } else if (typeof $substore !== 'undefined' && $substore.args) {
+        args = $substore.args;
+    }
 
-    // 1. 统计每个地区的实际节点数量
+    const threshold = parseInt(args.threshold) || 0;   // 默认 0
+
+    // 1. 统计每个地区的节点数量
     const countryCount = {};
     const countryProxies = {};
 
@@ -23,7 +31,7 @@ function main(config, args) {
     const newCountryGroups = [];
 
     Object.keys(countryCount).forEach(country => {
-        if (countryCount[country] < threshold) return;   // 关键过滤
+        if (countryCount[country] < threshold) return;
 
         newCountryGroups.push({
             name: `${country}智选`,
@@ -42,7 +50,7 @@ function main(config, args) {
         .filter(p => getCountry(p.name) === "其他地区")
         .map(p => p.name);
 
-    if (otherProxies.length >= threshold) {
+    if (otherProxies.length >= threshold && otherProxies.length > 0) {
         newCountryGroups.push({
             name: "其他地区智选",
             type: "url-test",
@@ -55,11 +63,10 @@ function main(config, args) {
         });
     }
 
-    // 4. 替换原有国家智选分组
+    // 4. 更新 proxy-groups
     let groups = config['proxy-groups'] || [];
     groups = groups.filter(g => !g.name.endsWith('智选') || g.name === '所有智选');
 
-    // 添加新生成的分组
     groups.push(...newCountryGroups);
 
     // 更新 “所有智选” 分组
