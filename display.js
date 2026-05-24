@@ -4,7 +4,7 @@
 // ==/UserScript==
 
 function main(config, args) {
-    const threshold = parseInt(args.threshold) || 1;   // 默认 0（全部显示）
+    const threshold = parseInt(args.threshold) || 0;   // 默认 0（全部显示）
 
     // 1. 统计每个地区的实际节点数量
     const countryCount = {};
