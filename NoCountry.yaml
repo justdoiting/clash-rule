@@ -250,9 +250,9 @@ rules:
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
-    - RULE-SET,Proxy,外网选择
     - RULE-SET,CNSITE,DIRECT
     - RULE-SET,CNPro,DIRECT
     - RULE-SET,CNIP,DIRECT
-    - RULE-SET,CNASN,DIRECT   
+    - RULE-SET,CNASN,DIRECT       
+    - RULE-SET,Proxy,外网选择
     - MATCH,漏网之鱼
