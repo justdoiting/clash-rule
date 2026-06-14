@@ -299,8 +299,8 @@ rules:
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
     - RULE-SET,CNSITE,DIRECT
+    - RULE-SET,CNASN,DIRECT
     - RULE-SET,CNip,DIRECT
     - RULE-SET,Proxy,外网选择 
     - RULE-SET,CNPro,DIRECT
-    - RULE-SET,CNASN,DIRECT
     - MATCH,漏网之鱼
