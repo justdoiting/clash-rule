@@ -48,10 +48,10 @@ const nx = inArg.nx || false,
   blgd = inArg.blgd || false,
   blpx = inArg.blpx || false,
   blnx = inArg.blnx || false,
-  numone = inArg.one || false,
+  numone = inArg.one || true,
   debug = inArg.debug || false,
-  clear = inArg.clear || false,
-  addflag = inArg.flag || false,
+  clear = inArg.clear || true,
+  addflag = inArg.flag || true,
   nm = inArg.nm || false;
 
 const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf),
