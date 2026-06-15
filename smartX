@@ -153,7 +153,7 @@ proxy-groups:
       interval: 300
       timeout: 1500
       lazy: true
-      proxies: ["香港节点", "台湾节点", "日本节点", "其他地区"]
+      proxies: ["亚洲", "非洲", "欧洲", "北美洲", "南美洲", "大洋洲", "其他地区"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Loop.png
 
     - name: 风控尝试
