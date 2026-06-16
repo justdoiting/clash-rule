@@ -149,7 +149,8 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
 
     - name: 随机节点
-      type: fallback
+      type: load-balance
+      strategy: consistent-hashing
       url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1500
