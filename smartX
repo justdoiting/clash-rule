@@ -43,6 +43,7 @@ zhixuan: &zhixuan
    interval: 600
    prefer-asn: true
    lazy: true
+   empty-fallback: REJECT-DROP
 
 proxy-providers:
 
@@ -153,6 +154,7 @@ proxy-groups:
       interval: 300
       timeout: 1500
       lazy: true
+      empty-fallback: REJECT-DROP
       proxies: ["亚洲", "非洲", "欧洲", "北美洲", "南美洲", "大洋洲", "其他地区"]
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Loop.png
 
@@ -165,6 +167,7 @@ proxy-groups:
       lazy: true
       strategy: round-robin
       expected-status: 200
+      empty-fallback: REJECT-DROP
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
 
 guize: &guize
