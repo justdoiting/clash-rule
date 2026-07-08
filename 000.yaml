@@ -214,11 +214,6 @@ rule-providers:
       url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list
       path: ./rules/BiliBili.list
 
-    CNASN:
-      <<: *guize
-      url: https://raw.githubusercontent.com/budaobu/rules/refs/heads/main/lists/cn_asn.list
-      path: ./rules/CNASN.list
-
     YouTube:
       <<: *guize
       url: https://raw.githubusercontent.com/Repcz/Tool/refs/heads/X/mihomo/Rules/YouTube.list
@@ -283,7 +278,6 @@ rule-providers:
 
 rules:
     - RULE-SET,Lan,DIRECT,no-resolve
-    - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
     - DOMAIN,h.huajiao.com,所有智选
     - DOMAIN-KEYWORD,stripchat,ST下载
     - DOMAIN-KEYWORD,doppiocdn,ST下载
@@ -299,7 +293,6 @@ rules:
     - RULE-SET,Twitter,推特消息
     - RULE-SET,TikTok,TikTok
     - RULE-SET,CNSITE,DIRECT
-    - RULE-SET,CNASN,DIRECT
     - RULE-SET,CNip,DIRECT
     - RULE-SET,Proxy,外网选择 
     - RULE-SET,CNPro,DIRECT
