@@ -183,7 +183,7 @@ rule-providers:
 
     TikTok:
       <<: *guize
-      url: https://whatshub.top/rule/TikTok.list
+      url: https://yfamilys.com/rule/TikTok.list
       path: ./rules/TikTok.yaml
 
     Telegram:
@@ -193,7 +193,7 @@ rule-providers:
 
     Twitter:
       <<: *guize
-      url: https://whatshub.top/rule/Twitter.list
+      url: https://yfamilys.com/rule/Twitter.list
       path: ./rules/Twitter.yaml
 
     AI:
