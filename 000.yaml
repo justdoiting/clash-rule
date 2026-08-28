@@ -279,6 +279,7 @@ rule-providers:
 rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - DOMAIN,h.huajiao.com,所有智选
+    - PROCESS-NAME,sg.bigo.live,手动选择
     - DOMAIN-KEYWORD,stripchat,ST下载
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - DOMAIN-KEYWORD,sooplive,SOOP选择
