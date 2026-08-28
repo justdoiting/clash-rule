@@ -244,6 +244,7 @@ rule-providers:
 rules:
     - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
     - RULE-SET,Lan,DIRECT,no-resolve
+    - PROCESS-NAME,sg.bigo.live,手动选择
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
