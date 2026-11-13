@@ -285,6 +285,7 @@ rules:
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
     - DOMAIN-KEYWORD,bigo,BIGO解析
+    - IP-ASN,10122,BIGO下载
     - DOMAIN-KEYWORD,cubetecn,BIGO下载
     - DOMAIN-KEYWORD,cubetvgame,BIGO下载
     - RULE-SET,AI,AI平台
