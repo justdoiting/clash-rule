@@ -1,7 +1,7 @@
 mixed-port: 7890
 tcp-concurrent: true
 allow-lan: true
-ipv6: false
+ipv6: true
 log-level: info
 unified-delay: true
 find-process-mode: strict
@@ -15,7 +15,7 @@ geox-url:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   prefer-h3: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
