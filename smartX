@@ -257,6 +257,8 @@ rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - DOMAIN,h.huajiao.com,风控尝试
     - DOMAIN-KEYWORD,sooplive,SOOP选择
+    - IP-SUFFIX,164.90.67.6/24,BIGO解析
+    - IP-SUFFIX,164.90.64.60/24,BIGO解析
     - DOMAIN-KEYWORD,bigo,BIGO解析
     - DOMAIN-KEYWORD,cubetecn,BIGO下载
     - DOMAIN-KEYWORD,cubetvgame,BIGO下载
