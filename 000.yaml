@@ -279,15 +279,16 @@ rule-providers:
 rules:
     - RULE-SET,Lan,DIRECT,no-resolve
     - DOMAIN,h.huajiao.com,所有智选
-    - AND,((PROCESS-NAME,sg.bigo.live),(IP-ASN,10122)),BIGO解析
+    - IP-SUFFIX,164.90.67.6/24,BIGO解析
+    - IP-SUFFIX,164.90.64.60/24,BIGO解析
     - DOMAIN-KEYWORD,stripchat,ST下载
     - DOMAIN-KEYWORD,doppiocdn,ST下载
     - DOMAIN-KEYWORD,sooplive,SOOP选择
     - RULE-SET,Other,杂七杂八
     - DOMAIN-KEYWORD,bigo,BIGO解析
-    - IP-ASN,10122,BIGO下载
     - DOMAIN-KEYWORD,cubetecn,BIGO下载
     - DOMAIN-KEYWORD,cubetvgame,BIGO下载
+    - IP-ASN,10122,BIGO下载 
     - RULE-SET,AI,AI平台
     - RULE-SET,BiliBili,哔哩哔哩
     - RULE-SET,YouTube,YouTube
